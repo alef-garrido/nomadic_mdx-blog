@@ -8,15 +8,15 @@ export function Providers({ children }: { children: React.ReactNode }) {
     const router = useRouter();
 
     return (
-        <HeroUIProvider navigate={router.push}>
-            <NextThemesProvider
-                attribute="class"
-                defaultTheme="dark"
-                enableSystem
-                disableTransitionOnChange
-            >
+        <NextThemesProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+        >
+            <HeroUIProvider navigate={router.push}>
                 {children}
-            </NextThemesProvider>
-        </HeroUIProvider>
+            </HeroUIProvider>
+        </NextThemesProvider>
     );
 }

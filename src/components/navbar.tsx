@@ -23,10 +23,12 @@ export function AppNavbar() {
     const menuItems = [
         { name: "Blog", href: "/blog" },
         { name: "About", href: "/about" },
+        { name: "Club", href: "/club" },
     ];
 
     return (
         <Navbar
+            isMenuOpen={isMenuOpen}
             onMenuOpenChange={setIsMenuOpen}
             maxWidth="xl"
             isBordered
@@ -46,7 +48,7 @@ export function AppNavbar() {
                 </NavbarBrand>
             </NavbarContent>
 
-            <NavbarContent className="hidden sm:flex gap-6" justify="start">
+            <NavbarContent className="hidden sm:flex gap-6" justify="center">
                 {menuItems.map((item) => (
                     <NavbarItem key={item.name} isActive={pathname === item.href}>
                         <NextLink

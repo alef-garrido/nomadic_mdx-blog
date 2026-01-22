@@ -7,7 +7,7 @@ import { Sun, Moon } from "lucide-react";
 
 export function ThemeSwitcher() {
     const [mounted, setMounted] = useState(false);
-    const { theme, setTheme } = useTheme();
+    const { resolvedTheme, setTheme } = useTheme();
 
     useEffect(() => {
         setMounted(true);
@@ -21,11 +21,11 @@ export function ThemeSwitcher() {
             variant="light"
             radius="full"
             size="sm"
-            onPress={() => setTheme(theme === "dark" ? "light" : "dark")}
+            onPress={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
             aria-label="Toggle theme"
-            className="text-foreground/60 hover:text-foreground hover:bg-white/10"
+            className="text-foreground/60 hover:text-foreground hover:bg-default-100"
         >
-            {theme === "dark" ? (
+            {resolvedTheme === "dark" ? (
                 <Sun className="w-5 h-5 transition-all duration-300" />
             ) : (
                 <Moon className="w-5 h-5 transition-all duration-300" />
