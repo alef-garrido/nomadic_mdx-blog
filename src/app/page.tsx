@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { Button, Link as HeroLink } from "@heroui/react";
 import { ArrowRight, BookOpen, Cpu, Globe } from "lucide-react";
 
 export default function Home() {
@@ -26,18 +29,29 @@ export default function Home() {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4 pt-8">
-          <Link
+          <Button
+            as={Link}
             href="/blog"
-            className="group flex items-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold transition-all hover:scale-105"
+            color="primary"
+            variant="shadow"
+            size="lg"
+            radius="full"
+            className="font-bold py-7 px-10"
+            endContent={<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
           >
-            Start Reading <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <a
+            Start Reading
+          </Button>
+          <Button
+            as={HeroLink}
             href="https://github.com"
-            className="px-8 py-4 border border-white/10 hover:bg-white/5 rounded-full font-bold transition-all"
+            variant="bordered"
+            size="lg"
+            radius="full"
+            className="font-bold py-7 px-10 border-white/10 hover:bg-white/5"
+            isExternal
           >
             GitHub
-          </a>
+          </Button>
         </div>
       </div>
 
