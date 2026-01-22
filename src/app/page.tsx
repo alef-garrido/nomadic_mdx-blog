@@ -18,7 +18,7 @@ export default function Home() {
 
         <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight">
           Write once, <br />
-          <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
             Scale anywhere.
           </span>
         </h1>
