@@ -14,6 +14,11 @@ export function getPostBySlug(slug: string) {
     const fileContents = fs.readFileSync(fullPath, "utf8");
     const { data, content } = matter(fileContents);
 
+    // Ensure all frontmatter data is serializable for React (especially Dates)
+    if (data.date instanceof Date) {
+        data.date = data.date.toISOString().split("T")[0];
+    }
+
     return { slug: realSlug, frontmatter: data, content };
 }
 
