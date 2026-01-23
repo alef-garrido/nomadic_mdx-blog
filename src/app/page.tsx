@@ -4,12 +4,12 @@ import Link from "next/link";
 import { Snippet, Button, Code, Link as HeroLink } from "@heroui/react";
 import { ArrowRight, BookOpen, Cpu, Globe } from "lucide-react";
 import Marquee from "@/components/marquee";
+import { HeroParallax } from "@/components/parallaxDisplay";
 
 export default function Home() {
   return (
     <div className="w-full min-h-[calc(100vh-160px)] flex flex-col items-center">
       <div className="w-full max-w-5xl mx-4 my-8">
-
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium mb-4">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -58,6 +58,7 @@ export default function Home() {
       <div className="w-full">
         <Marquee />
       </div>
+      <HeroParallax />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24 text-left w-full max-w-5xl">
         <FeatureCard
           icon={<Cpu className="w-6 h-6 text-blue-400" />}
