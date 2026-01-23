@@ -1,60 +1,63 @@
 "use client";
 
 import Link from "next/link";
-import { Button, Link as HeroLink } from "@heroui/react";
+import { Snippet, Button, Code, Link as HeroLink } from "@heroui/react";
 import { ArrowRight, BookOpen, Cpu, Globe } from "lucide-react";
+import Marquee from "@/components/marquee";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-160px)] text-center">
-      <div className="space-y-6 max-w-3xl">
+    <div className="w-full min-h-[calc(100vh-160px)] flex flex-col items-center">
+      <div className="w-full max-w-5xl mx-4 my-8">
+
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium mb-4">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
           </span>
-          Next.js 15 + MDX Remote
+          A Nomadic Network
         </div>
 
-        <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight">
-          Write once, <br />
-          <span className="bg-linear-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-            Scale anywhere.
-          </span>
-        </h1>
+        <div className="w-full max-w-5xl m-4">
+          <div className="">
+            <h1 className="text-4xl md:text-6xl font-bold">
+              Update to the latest version of&nbsp;
+            </h1>
+            <h2 className="text-5xl md:text-8xl text-emerald-400 uppercase">freedom</h2>
+            <h2 className="text-5xl md:text-6xl font-bold">with nomad_proxy.</h2>
+            <h2 className="mt-8 text-3xl ">
+              Secured, expedite and modern full-time traveling.
+            </h2>
+            <div className="mt-8 flex gap-3">
+              <Button
+                color="primary"
+                // href={siteConfig.links.sponsor}
+                variant="flat"
+              >
+                Request Invite now
+              </Button>
+              <Button
+                color="primary"
+                // href={siteConfig.links.whatsapp}
+                variant="flat"
+              >
+                Talk to the team
+              </Button>
+            </div>
+          </div>
 
-        <p className="text-xl text-foreground/60 leading-relaxed max-w-2xl mx-auto">
-          A high-performance blog engine built for developers.
-          Powered by MDX Remote for ultimate flexibility and Tailwind v4 for stunning aesthetics.
-        </p>
-
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-8">
-          <Button
-            as={Link}
-            href="/blog"
-            color="primary"
-            variant="shadow"
-            size="lg"
-            radius="full"
-            className="font-bold py-7 px-10"
-            endContent={<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />}
-          >
-            Start Reading
-          </Button>
-          <Button
-            as={HeroLink}
-            href="https://github.com"
-            variant="bordered"
-            size="lg"
-            radius="full"
-            className="font-bold py-7 px-10 border-white/10 hover:bg-white/5"
-            isExternal
-          >
-            GitHub
-          </Button>
+          <div className="my-8 grid place-items-start md:place-items-end">
+            <Snippet hideCopyButton hideSymbol variant="bordered" className="w-full justify-center">
+              <span>
+                Next Departure: <Code color="danger">OCTOBER_28_2026</Code>
+              </span>
+            </Snippet>
+          </div>
         </div>
       </div>
-
+      <div className="w-full">
+        <Marquee />
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24 text-left w-full max-w-5xl">
         <FeatureCard
           icon={<Cpu className="w-6 h-6 text-blue-400" />}

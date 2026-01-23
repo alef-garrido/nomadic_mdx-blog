@@ -34,6 +34,7 @@ export function AppNavbar() {
             isBordered
             className="bg-background/60 backdrop-blur-md"
         >
+
             <NavbarContent>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}

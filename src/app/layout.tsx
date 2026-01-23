@@ -21,13 +21,8 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased bg-background text-foreground transition-colors duration-300`}>
         <Providers>
           <div className="relative min-h-screen">
-            {/* Background elements for rich aesthetics */}
-            <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top_right,var(--tw-gradient-stops))] from-blue-900/20 via-background to-background" />
-            <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_bottom_left,var(--tw-gradient-stops))] from-purple-900/20 via-transparent to-transparent" />
-
             <AppNavbar />
-
-            <main className="container mx-auto px-4 py-8">
+            <main className="container mx-auto p-4">
               {children}
             </main>
           </div>

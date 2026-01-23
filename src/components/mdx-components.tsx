@@ -1,6 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { Copy } from "lucide-react";
+import { Snippet } from "./snippet";
+import { Code } from "./code";
+import { Button } from "./button";
 
 export const mdxComponents = {
     h1: (props: any) => (
@@ -33,4 +36,7 @@ export const mdxComponents = {
         <pre className="relative rounded-lg bg-zinc-900 p-4 overflow-x-auto my-6 border border-white/5" {...props} />
     ),
     code: (props: any) => <code className="bg-zinc-800 rounded px-1.5 py-0.5 text-sm font-mono" {...props} />,
+    Snippet,
+    Code,
+    Button,
 };
