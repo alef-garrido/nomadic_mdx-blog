@@ -1,9 +1,13 @@
-import { getPostBySlug, getPostSlugs } from "@/lib/mdx";
+import { getPostBySlug, getPostSlugs, getHeadings } from "@/lib/mdx";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { mdxComponents } from "@/components/mdx-components";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { TableOfContents } from "@/components/table-of-contents";
+import { RelatedPosts } from "@/components/related-posts";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
 export async function generateStaticParams() {
     const slugs = getPostSlugs();
@@ -22,8 +26,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         notFound();
     }
 
+    const headings = getHeadings(post.content);
+
     return (
-        <article className="max-w-3xl mx-auto py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             <Link
                 href="/blog"
                 className="inline-flex items-center gap-2 text-sm text-foreground/50 hover:text-blue-400 transition-colors mb-8"
@@ -32,41 +38,60 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
                 Back to blog
             </Link>
 
-            <header className="mb-12">
-                <div className="flex items-center gap-4 text-sm text-foreground/50 mb-4">
-                    <div className="flex items-center gap-1">
-                        <Calendar className="w-4 h-4" />
-                        <time>{post.frontmatter.date}</time>
+            <div className="lg:grid lg:grid-cols-[1fr_250px] lg:gap-12">
+                <article className="min-w-0">
+                    <header className="mb-12">
+                        <div className="flex items-center gap-4 text-sm text-foreground/50 mb-4">
+                            <div className="flex items-center gap-1">
+                                <Calendar className="w-4 h-4" />
+                                <time>{post.frontmatter.date}</time>
+                            </div>
+                            <div className="flex items-center gap-1">
+                                <Clock className="w-4 h-4" />
+                                <span>5 min read</span>
+                            </div>
+                        </div>
+
+                        <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
+                            {post.frontmatter.title}
+                        </h1>
+
+                        <p className="text-xl text-foreground/60 italic border-l-4 border-blue-500 pl-6 py-2">
+                            {post.frontmatter.description}
+                        </p>
+                    </header>
+
+                    <div className="prose prose-invert max-w-none">
+                        <MDXRemote
+                            source={post.content}
+                            components={mdxComponents}
+                            options={{
+                                mdxOptions: {
+                                    remarkPlugins: [remarkGfm],
+                                    rehypePlugins: [rehypeSlug],
+                                },
+                            }}
+                        />
                     </div>
-                    <div className="flex items-center gap-1">
-                        <Clock className="w-4 h-4" />
-                        <span>5 min read</span>
-                    </div>
-                </div>
 
-                <h1 className="text-4xl md:text-5xl font-extrabold mb-6 leading-tight">
-                    {post.frontmatter.title}
-                </h1>
+                    <footer className="mt-16 pt-8 border-t border-white/10">
+                        <div className="flex items-center justify-between">
+                            <div className="text-sm text-foreground/50">
+                                Thanks for reading!
+                            </div>
+                            <div className="flex gap-4">
+                                {/* Social links placeholder */}
+                            </div>
+                        </div>
+                    </footer>
 
-                <p className="text-xl text-foreground/60 italic border-l-4 border-blue-500 pl-6 py-2">
-                    {post.frontmatter.description}
-                </p>
-            </header>
+                    <RelatedPosts currentSlug={slug} />
+                </article>
 
-            <div className="prose prose-invert max-w-none">
-                <MDXRemote source={post.content} components={mdxComponents} />
+                <aside className="hidden lg:block">
+                    <TableOfContents headings={headings} />
+                </aside>
             </div>
-
-            <footer className="mt-16 pt-8 border-t border-white/10">
-                <div className="flex items-center justify-between">
-                    <div className="text-sm text-foreground/50">
-                        Thanks for reading!
-                    </div>
-                    <div className="flex gap-4">
-                        {/* Social links placeholder */}
-                    </div>
-                </div>
-            </footer>
-        </article>
+        </div>
     );
 }
