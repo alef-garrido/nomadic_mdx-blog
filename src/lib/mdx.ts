@@ -30,3 +30,18 @@ export function getAllPosts() {
         .sort((post1, post2) => (post1.frontmatter.date > post2.frontmatter.date ? -1 : 1));
     return posts;
 }
+
+export function getHeadings(content: string) {
+    const headingLines = content.split("\n").filter((line) => line.match(/^##?\s/));
+
+    return headingLines.map((line) => {
+        const text = line.replace(/^##?\s/, "");
+        const level = line.startsWith("##") ? 2 : 1;
+        const id = text
+            .toLowerCase()
+            .replace(/[^\w\s-]/g, "")
+            .replace(/\s+/g, "-");
+
+        return { text, level, id };
+    });
+}
