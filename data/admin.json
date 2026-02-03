@@ -1,0 +1,10 @@
+[
+  {
+    "id": "b43ae7f4-14f1-4021-8757-f60af6c5171c",
+    "email": "admin@nomadic.com",
+    "passwordHash": "$2b$12$bfNQ79iNkBgBOMMN8/ELBunxjLhUuVSSUnDH4Bb9bGTn7ho6BT7oq",
+    "name": "Admin",
+    "role": "admin",
+    "createdAt": "2026-02-03T07:08:38.648Z"
+  }
+]
