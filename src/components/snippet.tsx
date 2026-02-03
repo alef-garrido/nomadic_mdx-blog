@@ -7,7 +7,7 @@ interface SnippetProps {
   children: string;
   symbol?: string;
   hideSymbol?: boolean;
-  variant?: "solid" | "bordered" | "flat" | "faded" | "shadow" | "dot";
+  variant?: "solid" | "bordered" | "flat" | "shadow";
   color?: "default" | "primary" | "secondary" | "success" | "warning" | "danger";
   className?: string;
 }
