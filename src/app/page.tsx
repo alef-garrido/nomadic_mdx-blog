@@ -5,6 +5,7 @@ import { Snippet, Button, Code, Link as HeroLink } from "@heroui/react";
 import { ArrowRight, BookOpen, Cpu, Globe } from "lucide-react";
 import Marquee from "@/components/marquee";
 import { HeroParallax } from "@/components/parallaxDisplay";
+import { LeadForm } from "@/components/forms/LeadForm";
 
 export default function Home() {
   return (
@@ -75,6 +76,14 @@ export default function Home() {
           title="Modern UI"
           description="Glassmorphic design system using Tailwind CSS v4 and Framer Motion."
         />
+      </div>
+
+      <div className="w-full max-w-5xl mt-24 mb-16">
+        <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl border border-white/10 p-12">
+          <h3 className="text-3xl font-bold mb-2">Stay Connected</h3>
+          <p className="text-foreground/60 mb-8">Get updates about our journey and connect with the nomadic community.</p>
+          <LeadForm />
+        </div>
       </div>
     </div>
   );
