@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { Button, Input, Card } from "@heroui/react";
 import { AlertCircle, Lock } from "lucide-react";
+import { toast } from "@/lib/toast";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -29,12 +30,17 @@ export default function LoginPage() {
       });
 
       if (result?.error) {
-        setError("Invalid email or password");
+        const errorMsg = "Invalid email or password";
+        setError(errorMsg);
+        toast.error(errorMsg);
       } else if (result?.ok) {
+        toast.success("Login successful! Redirecting...");
         router.push(callbackUrl);
       }
     } catch (err) {
-      setError("An error occurred. Please try again.");
+      const errorMsg = "An error occurred. Please try again.";
+      setError(errorMsg);
+      toast.error(errorMsg);
     } finally {
       setIsLoading(false);
     }
@@ -57,7 +63,7 @@ export default function LoginPage() {
         </p>
 
         {error && (
-          <div className="mb-6 p-3 bg-red-500/10 border border-red-500/30 rounded-lg flex gap-2">
+          <div className="mb-6 p-3 bg-red-500/10 border border-red-500/30 rounded-lg flex gap-2 animate-in fade-in">
             <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
             <p className="text-red-500 text-sm">{error}</p>
           </div>
