@@ -14,13 +14,16 @@ import {
 import NextLink from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { FaThreads } from "react-icons/fa6";
-import { LuLock } from "react-icons/lu";
+import { LuLock, LuUser } from "react-icons/lu";
 
 export function AppNavbar() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
     const pathname = usePathname();
+    const { data: session } = useSession();
+    const isAuthorized = !!session?.user;
 
     const menuItems = [
         { name: "Blog", href: "/blog" },
@@ -83,11 +86,15 @@ export function AppNavbar() {
                 </HeroLink>
                 <HeroLink
                     as={NextLink}
-                    href="/admin"
-                    className="text-foreground/60 hover:text-foreground p-2"
-                    title="Admin / Login"
+                    href={isAuthorized ? "/admin" : "/login"}
+                    className="text-foreground/60 hover:text-foreground p-2 transition-colors"
+                    title={isAuthorized ? "Admin Dashboard" : "Login"}
                 >
-                    <LuLock className="w-5 h-5" />
+                    {isAuthorized ? (
+                        <LuUser className="w-5 h-5 text-blue-400" />
+                    ) : (
+                        <LuLock className="w-5 h-5" />
+                    )}
                 </HeroLink>
             </NavbarContent>
 
