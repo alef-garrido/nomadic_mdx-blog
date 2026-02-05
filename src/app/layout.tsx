@@ -20,12 +20,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased bg-background text-foreground transition-colors duration-300`}>
         <Providers>
-          <div className="relative min-h-screen">
-            <AppNavbar />
-            <main className="container mx-auto p-4">
-              {children}
-            </main>
-          </div>
+          {/* Admin section uses its own layout, so don't render navbar/container here */}
+          {children}
         </Providers>
       </body>
     </html>

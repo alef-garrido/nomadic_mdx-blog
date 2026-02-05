@@ -16,7 +16,7 @@ import {
   SelectItem,
   useDisclosure,
 } from "@heroui/react";
-import { Trash2, Eye, Search } from "lucide-react";
+import { Trash2, Eye, Search, Filter } from "lucide-react";
 import Link from "next/link";
 import { toast } from "@/lib/toast";
 import ConfirmationDialog from "@/components/ui/ConfirmationDialog";
@@ -52,7 +52,6 @@ export default function LeadsPage() {
       if (response.ok) {
         const data = await response.json();
         setLeads(data.data || []);
-        toast.success("Leads loaded successfully");
       } else if (response.status === 401) {
         toast.error("Session expired. Please login again.");
       } else {
@@ -132,8 +131,15 @@ export default function LeadsPage() {
     });
   };
 
+  const stats = {
+    total: leads.length,
+    new: leads.filter((l) => l.status === "new").length,
+    contacted: leads.filter((l) => l.status === "contacted").length,
+    converted: leads.filter((l) => l.status === "converted").length,
+  };
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-8">
       {/* Confirmation Dialog */}
       <ConfirmationDialog
         title="Delete Lead"
@@ -147,43 +153,65 @@ export default function LeadsPage() {
         isLoading={deleteLoading}
       />
 
-      {/* Header */}
+      {/* Page Header */}
       <div>
-        <h1 className="text-3xl font-bold text-white mb-2">Leads Management</h1>
-        <p className="text-slate-400">
-          Total leads: {leads.length} | Displaying: {filteredLeads.length}
+        <h1 className="text-4xl font-bold text-white mb-3">Leads Management</h1>
+        <p className="text-slate-400 text-lg">
+          Track and manage all your leads
         </p>
       </div>
 
+      {/* Stats Overview */}
+      {!isLoading && (
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { label: "Total", count: stats.total, color: "bg-blue-500/10 text-blue-400" },
+            { label: "New", count: stats.new, color: "bg-cyan-500/10 text-cyan-400" },
+            { label: "Contacted", count: stats.contacted, color: "bg-amber-500/10 text-amber-400" },
+            { label: "Converted", count: stats.converted, color: "bg-green-500/10 text-green-400" },
+          ].map((stat) => (
+            <div key={stat.label} className={`p-4 rounded-lg ${stat.color} border border-slate-700/50`}>
+              <p className="text-sm font-medium text-slate-300 mb-1">{stat.label}</p>
+              <p className="text-2xl font-bold">{stat.count}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
       {/* Filters */}
-      <Card className="bg-slate-800 border border-slate-700 p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Input
-            placeholder="Search by email or name..."
-            startContent={<Search className="w-4 h-4" />}
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="bg-slate-700"
-          />
-          <Select
-            label="Filter by status"
-            selectedKeys={[filterStatus]}
-            onChange={(e) => setFilterStatus(e.target.value)}
-            className="bg-slate-700"
-          >
-            <SelectItem key="all">
-              All Statuses
-            </SelectItem>
-            <SelectItem key="new">
-              New
-            </SelectItem>
-            <SelectItem key="contacted">
-              Contacted
-            </SelectItem>
-            <SelectItem key="converted">
-              Converted
-            </SelectItem>
-          </Select>
+      <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700/50">
+        <div className="p-6">
+          <div className="flex items-center gap-2 mb-4">
+            <Filter className="w-5 h-5 text-slate-400" />
+            <h3 className="text-sm font-semibold text-slate-200">Filters</h3>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Input
+              placeholder="Search by email or name..."
+              startContent={<Search className="w-4 h-4 text-slate-500" />}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="bg-slate-700/50"
+              classNames={{
+                input: "text-slate-200 placeholder-slate-500",
+                inputWrapper: "bg-slate-800/50 border-slate-700/50"
+              }}
+            />
+            <Select
+              label="Filter by status"
+              selectedKeys={[filterStatus]}
+              onChange={(e) => setFilterStatus(e.target.value)}
+              classNames={{
+                trigger: "bg-slate-800/50 border-slate-700/50",
+                label: "text-slate-400"
+              }}
+            >
+              <SelectItem key="all">All Statuses</SelectItem>
+              <SelectItem key="new">New</SelectItem>
+              <SelectItem key="contacted">Contacted</SelectItem>
+              <SelectItem key="converted">Converted</SelectItem>
+            </Select>
+          </div>
         </div>
       </Card>
 
@@ -191,15 +219,15 @@ export default function LeadsPage() {
       {isLoading ? (
         <TableSkeleton rows={5} columns={6} />
       ) : (
-        <Card className="bg-slate-800 border border-slate-700">
+        <Card className="bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700/50 overflow-hidden">
           <Table
             aria-label="Leads table"
             classNames={{
-              base: "bg-slate-800",
-              table: "bg-slate-800",
-              th: "bg-slate-700/50 text-slate-200",
-              tr: "hover:bg-slate-700/50 transition",
-              td: "text-slate-300",
+              base: "bg-transparent",
+              table: "bg-transparent",
+              th: "bg-slate-800/50 text-slate-200 font-semibold border-b border-slate-700/50",
+              tr: "hover:bg-slate-700/30 border-b border-slate-700/50 transition-colors",
+              td: "text-slate-300 py-4",
             }}
           >
             <TableHeader>
@@ -208,39 +236,44 @@ export default function LeadsPage() {
               <TableColumn>Company</TableColumn>
               <TableColumn>Status</TableColumn>
               <TableColumn>Date</TableColumn>
-              <TableColumn>Actions</TableColumn>
+              <TableColumn align="center">Actions</TableColumn>
             </TableHeader>
             <TableBody
               items={filteredLeads}
               emptyContent={
-                <div className="p-4 text-center text-slate-400">
-                  No leads found
+                <div className="py-12 text-center text-slate-400">
+                  <p className="font-medium">No leads found</p>
+                  <p className="text-sm">Try adjusting your filters</p>
                 </div>
               }
             >
               {(lead) => (
                 <TableRow key={lead.id}>
-                  <TableCell className="font-medium">{lead.name}</TableCell>
-                  <TableCell>{lead.email}</TableCell>
-                  <TableCell>{lead.company || "-"}</TableCell>
+                  <TableCell className="font-medium text-white">{lead.name}</TableCell>
+                  <TableCell className="text-slate-300">{lead.email}</TableCell>
+                  <TableCell className="text-slate-400">{lead.company || "—"}</TableCell>
                   <TableCell>
                     <Chip
                       color={getStatusColor(lead.status)}
                       size="sm"
                       variant="flat"
+                      className="capitalize"
                     >
                       {lead.status}
                     </Chip>
                   </TableCell>
-                  <TableCell>{formatDate(lead.createdAt)}</TableCell>
+                  <TableCell className="text-slate-400 text-sm">
+                    {formatDate(lead.createdAt)}
+                  </TableCell>
                   <TableCell>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 justify-center">
                       <Link href={`/admin/leads/${lead.id}`}>
                         <Button
                           isIconOnly
                           size="sm"
                           variant="light"
-                          className="text-blue-400 hover:text-blue-300"
+                          className="text-blue-400 hover:text-blue-300 hover:bg-blue-500/10"
+                          title="View details"
                         >
                           <Eye className="w-4 h-4" />
                         </Button>
@@ -249,8 +282,9 @@ export default function LeadsPage() {
                         isIconOnly
                         size="sm"
                         variant="light"
-                        className="text-red-400 hover:text-red-300"
+                        className="text-red-400 hover:text-red-300 hover:bg-red-500/10"
                         onClick={() => handleDeleteClick(lead.id)}
+                        title="Delete lead"
                       >
                         <Trash2 className="w-4 h-4" />
                       </Button>

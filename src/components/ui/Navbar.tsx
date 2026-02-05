@@ -16,6 +16,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { ThemeSwitcher } from "../ThemeSwitcher";
 import { FaThreads } from "react-icons/fa6";
+import { LuLock } from "react-icons/lu";
 
 export function AppNavbar() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -43,10 +44,10 @@ export function AppNavbar() {
                 />
                 <NavbarBrand>
                     <NextLink href="/" className="flex items-center gap-2">
-                        <Image 
-                            src="/logo.svg" 
-                            alt="nomad_proxy logo" 
-                            width={32} 
+                        <Image
+                            src="/logo.svg"
+                            alt="nomad_proxy logo"
+                            width={32}
                             height={32}
                             className="w-8 h-8"
                         />
@@ -72,6 +73,7 @@ export function AppNavbar() {
             </NavbarContent>
 
             <NavbarContent justify="end" className="gap-2">
+                <ThemeSwitcher />
                 <HeroLink
                     isExternal
                     href="https://threads.net"
@@ -79,7 +81,14 @@ export function AppNavbar() {
                 >
                     <FaThreads className="w-5 h-5" />
                 </HeroLink>
-                <ThemeSwitcher />
+                <HeroLink
+                    as={NextLink}
+                    href="/admin"
+                    className="text-foreground/60 hover:text-foreground p-2"
+                    title="Admin / Login"
+                >
+                    <LuLock className="w-5 h-5" />
+                </HeroLink>
             </NavbarContent>
 
             <NavbarMenu className="bg-background/80 backdrop-blur-md pt-6">
