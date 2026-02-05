@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 import { useSession, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { Button } from "@heroui/react";
-import { LogOut, Settings, LayoutDashboard, Users } from "lucide-react";
+import { LogOut, Settings, LayoutDashboard, Users, BookOpen } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import ToastContainer from "@/components/ui/ToastContainer";
@@ -23,6 +23,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   const navItems = [
     { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
     { label: "Leads", href: "/admin/leads", icon: Users },
+    { label: "Blog Posts", href: "/admin/posts", icon: BookOpen },
   ];
 
   const isActive = (href: string) => pathname === href;
