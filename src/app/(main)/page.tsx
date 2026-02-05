@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Snippet, Button, Code, Link as HeroLink } from "@heroui/react";
 import { ArrowRight, BookOpen, Cpu, Globe } from "lucide-react";
 import Marquee from "@/components/ui/Marquee";
+import { MagicBento } from "@/components";
 import { HeroParallax } from "@/components/ui/ParallaxDisplay";
 import { LeadForm } from "@/components/forms/LeadForm";
 
@@ -60,24 +61,21 @@ export default function Home() {
         <Marquee />
       </div>
       <HeroParallax />
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24 text-left w-full max-w-5xl">
-        <FeatureCard
-          icon={<Cpu className="w-6 h-6 text-blue-400" />}
-          title="Super Fast"
-          description="Built on Next.js App Router for optimal performance and SEO out of the box."
-        />
-        <FeatureCard
-          icon={<BookOpen className="w-6 h-6 text-purple-400" />}
-          title="MDX Remote"
-          description="Load your content from anywhere. Files, databases, or even remote APIs."
-        />
-        <FeatureCard
-          icon={<Globe className="w-6 h-6 text-pink-400" />}
-          title="Modern UI"
-          description="Glassmorphic design system using Tailwind CSS v4 and Framer Motion."
-        />
-      </div>
-
+  <div className="w-full my-24 flex items-center justify-center">
+      <MagicBento
+        textAutoHide={true}
+        enableStars
+        enableSpotlight
+        enableBorderGlow={true}
+        enableTilt={false}
+        enableMagnetism={false}
+        clickEffect
+        spotlightRadius={400}
+        particleCount={12}
+        glowColor="0, 255, 100"
+        disableAnimations={false}
+      />
+ </div>
       <div className="w-full max-w-5xl mt-24 mb-16">
         <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl border border-white/10 p-12">
           <h3 className="text-3xl font-bold mb-2">Stay Connected</h3>

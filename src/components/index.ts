@@ -14,6 +14,7 @@ export { default as Marquee } from "./ui/Marquee";
 export { AppNavbar } from "./ui/Navbar";
 export { HeroParallax, Header, ProductCard } from "./ui/ParallaxDisplay";
 export { default as ToastContainer } from "./ui/ToastContainer";
+export { default as MagicBento } from "./ui/MagicBento";
 
 // Form components
 export { LeadForm } from "./forms/LeadForm";
