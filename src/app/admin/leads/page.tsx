@@ -19,8 +19,8 @@ import {
 import { Trash2, Eye, Search } from "lucide-react";
 import Link from "next/link";
 import { toast } from "@/lib/toast";
-import ConfirmationDialog from "@/components/ConfirmationDialog";
-import { TableSkeleton } from "@/components/LoadingSkeleton";
+import ConfirmationDialog from "@/components/ui/ConfirmationDialog";
+import { TableSkeleton } from "@/components/ui/LoadingSkeleton";
 
 interface Lead {
   id: string;

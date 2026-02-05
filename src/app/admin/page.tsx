@@ -5,7 +5,7 @@ import { Card, Skeleton } from "@heroui/react";
 import { Users, FileText, Activity } from "lucide-react";
 import Link from "next/link";
 import { toast } from "@/lib/toast";
-import { StatsSkeleton } from "@/components/LoadingSkeleton";
+import { StatsSkeleton } from "@/components/ui/LoadingSkeleton";
 
 interface Stats {
   totalLeads: number;

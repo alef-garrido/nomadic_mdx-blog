@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { Copy } from "lucide-react";
-import { Snippet } from "./snippet";
-import { Code } from "./code";
-import { Button } from "./button";
+import { Snippet } from "./ui/Snippet";
+import { Code } from "./ui/Code";
+import { Button } from "./ui/Button";
 
 export const mdxComponents = {
     h1: (props: any) => (

@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import { Button, Navbar, NavbarBrand, NavbarContent } from "@heroui/react";
 import { LogOut, Settings } from "lucide-react";
 import Link from "next/link";
-import ToastContainer from "@/components/ToastContainer";
+import ToastContainer from "@/components/ui/ToastContainer";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 export default function AdminLayout({ children }: { children: ReactNode }) {
   const { data: session } = useSession();
@@ -18,8 +19,9 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800">
-      <ToastContainer />
+    <ErrorBoundary>
+      <div className="min-h-screen bg-gradient-to-b from-slate-900 to-slate-800">
+        <ToastContainer />
       {/* Navigation Bar */}
       <Navbar className="bg-slate-800/50 border-b border-slate-700">
         <NavbarBrand>
@@ -75,6 +77,7 @@ export default function AdminLayout({ children }: { children: ReactNode }) {
         {/* Main Content */}
         <main className="flex-1 p-8">{children}</main>
       </div>
-    </div>
+      </div>
+    </ErrorBoundary>
   );
 }

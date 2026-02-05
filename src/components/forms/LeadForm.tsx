@@ -58,7 +58,7 @@ export function LeadForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-md">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-md mx-auto">
       <div>
         <Input
           {...register("name")}

@@ -6,7 +6,7 @@ import { Card, Button, Select, SelectItem, Spinner } from "@heroui/react";
 import { ArrowLeft, Save } from "lucide-react";
 import Link from "next/link";
 import { toast } from "@/lib/toast";
-import { CardSkeleton } from "@/components/LoadingSkeleton";
+import { CardSkeleton } from "@/components/ui/LoadingSkeleton";
 
 interface Lead {
   id: string;
@@ -37,7 +37,9 @@ export default function LeadDetailPage({ params }: { params: Promise<{ id: strin
 
   const fetchLead = async (id: string) => {
     try {
-      const response = await fetch(`/api/admin/leads/${id}`);
+      const response = await fetch(`/api/admin/leads/${id}`, {
+        headers: { 'Cache-Control': 'no-cache' }
+      });
       if (response.ok) {
         const data = await response.json();
         setLead(data.data);

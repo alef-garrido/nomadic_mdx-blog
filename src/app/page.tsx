@@ -3,14 +3,14 @@
 import Link from "next/link";
 import { Snippet, Button, Code, Link as HeroLink } from "@heroui/react";
 import { ArrowRight, BookOpen, Cpu, Globe } from "lucide-react";
-import Marquee from "@/components/marquee";
-import { HeroParallax } from "@/components/parallaxDisplay";
+import Marquee from "@/components/ui/Marquee";
+import { HeroParallax } from "@/components/ui/ParallaxDisplay";
 import { LeadForm } from "@/components/forms/LeadForm";
 
 export default function Home() {
   return (
     <div className="w-full min-h-[calc(100vh-160px)] flex flex-col items-center">
-      <div className="w-full max-w-5xl mx-4 my-8">
+      <div className="w-full max-w-5xl mx-4 my-24">
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium mb-4">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
@@ -56,7 +56,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="w-full">
+      <div className="w-full mt-8">
         <Marquee />
       </div>
       <HeroParallax />
