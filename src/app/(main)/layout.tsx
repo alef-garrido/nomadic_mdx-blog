@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { AppNavbar } from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 
 export default function MainLayout({ children }: { children: ReactNode }) {
   return (
@@ -8,6 +9,7 @@ export default function MainLayout({ children }: { children: ReactNode }) {
       <main className="flex-1 container mx-auto p-4">
         {children}
       </main>
+      <Footer />
     </div>
   );
 }
