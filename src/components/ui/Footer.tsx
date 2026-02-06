@@ -107,11 +107,12 @@ export default function Footer() {
           {/* Featured Image */}
           <div className="space-y-4">
             <h4 className={`font-semibold text-lg ${isDark ? 'text-white' : 'text-slate-900'}`}>Featured</h4>
-            <div className={`relative w-full aspect-square rounded-xl overflow-hidden shadow-lg transition-colors ${
+            <div className={`stamp-border relative w-full aspect-square rounded-xl overflow-hidden shadow-lg transition-colors ${
               isDark 
-                ? 'border border-slate-700/50 hover:border-blue-500/50' 
-                : 'border border-slate-300 hover:border-blue-400'
-            }`}>
+                ? 'hover:border-blue-500/50' 
+                : 'hover:border-blue-400'
+            }`}
+            style={{color: isDark ? 'rgb(51, 65, 85)' : 'rgb(203, 213, 225)'}}>
               <Image
                 src="/images/featured-story.jpg"
                 alt="feature image"

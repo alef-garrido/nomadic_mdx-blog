@@ -132,3 +132,26 @@ body {
 [data-text]::before {
   animation: glitch-before var(--before-duration) infinite linear alternate-reverse;
 }
+
+.stamp-border {
+  /* Adjust stamp perforation size */
+  --radius: 8px;
+
+  background-image: 
+    radial-gradient(
+      var(--radius),
+      transparent 98%,
+      currentColor
+    ),
+    linear-gradient(currentColor 0 0);
+  background-repeat: 
+    round, 
+    no-repeat;
+  background-position:
+    calc(var(--radius) * -1.5) calc(var(--radius) * -1.5),
+    50%;
+  background-size:
+    calc(var(--radius) * 3) calc(var(--radius) * 3),
+    calc(100% - var(--radius) * 3) calc(100% - var(--radius) * 3);
+  padding: calc(var(--radius) * 1.5);
+}
