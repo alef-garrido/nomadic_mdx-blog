@@ -7,13 +7,13 @@ import { Button } from "./ui/Button";
 
 export const mdxComponents = {
     h1: (props: any) => (
-        <h1 className="text-4xl font-bold mt-8 mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent" {...props} />
+        <h1 className="text-4xl font-bold mt-8 mb-4 bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent font-serif" {...props} />
     ),
-    h2: (props: any) => <h2 className="text-2xl font-semibold mt-6 mb-3 text-foreground/90 border-b border-white/10 pb-2" {...props} />,
-    h3: (props: any) => <h3 className="text-xl font-medium mt-4 mb-2 text-foreground/80" {...props} />,
-    p: (props: any) => <p className="leading-relaxed mb-4 text-foreground/70" {...props} />,
-    ul: (props: any) => <ul className="list-disc list-inside mb-4 space-y-1 text-foreground/70" {...props} />,
-    ol: (props: any) => <ol className="list-decimal list-inside mb-4 space-y-1 text-foreground/70" {...props} />,
+    h2: (props: any) => <h2 className="text-2xl font-semibold mt-6 mb-3 text-foreground/90 border-b border-white/10 pb-2 font-serif" {...props} />,
+    h3: (props: any) => <h3 className="text-xl font-medium mt-4 mb-2 text-foreground/80 font-serif" {...props} />,
+    p: (props: any) => <p className="leading-relaxed mb-4 text-foreground/70 font-mono" {...props} />,
+    ul: (props: any) => <ul className="list-disc list-inside mb-4 space-y-1 text-foreground/70 font-mono" {...props} />,
+    ol: (props: any) => <ol className="list-decimal list-inside mb-4 space-y-1 text-foreground/70 font-mono" {...props} />,
     li: (props: any) => <li className="ml-4" {...props} />,
     a: ({ href, ...props }: any) => {
         const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
@@ -33,7 +33,7 @@ export const mdxComponents = {
         );
     },
     pre: (props: any) => (
-        <pre className="relative rounded-lg bg-zinc-900 p-4 overflow-x-auto my-6 border border-white/5" {...props} />
+        <pre className="relative rounded-lg bg-zinc-900 p-4 overflow-x-auto my-6 border border-white/5 font-mono" {...props} />
     ),
     code: (props: any) => <code className="bg-zinc-800 rounded px-1.5 py-0.5 text-sm font-mono" {...props} />,
     Snippet,

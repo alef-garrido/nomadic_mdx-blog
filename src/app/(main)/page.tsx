@@ -91,8 +91,8 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode, titl
   return (
     <div className="p-6 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
       <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
-      <p className="text-foreground/60 text-sm leading-relaxed">{description}</p>
+      <h3 className="text-xl font-bold mb-2 font-serif">{title}</h3>
+      <p className="text-foreground/60 text-sm leading-relaxed font-mono">{description}</p>
     </div>
   );
 }

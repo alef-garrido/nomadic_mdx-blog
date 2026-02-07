@@ -33,7 +33,7 @@ export default function BlogPostLayout({
   relatedPosts = [],
 }: BlogPostLayoutProps) {
   return (
-    <article className="w-full">
+    <article className="w-full font-mono">
       {/* Back Link */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
         <Link
@@ -48,7 +48,7 @@ export default function BlogPostLayout({
       <div className={`w-full bg-gradient-to-br ${coverColor} py-12 md:py-20`}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Post Meta */}
-          <div className="flex items-center gap-4 text-sm text-white/80 mb-6">
+          <div className="flex items-center gap-4 text-sm text-white/80 mb-6 font-mono">
             <div className="flex items-center gap-1">
               <Calendar className="w-4 h-4" />
               <time>{date}</time>
@@ -60,12 +60,12 @@ export default function BlogPostLayout({
           </div>
 
           {/* Post Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight text-white drop-shadow-lg">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight text-white drop-shadow-lg font-serif">
             {title}
           </h1>
 
           {/* Post Description */}
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl drop-shadow-md">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl drop-shadow-md font-mono">
             {description}
           </p>
         </div>
@@ -91,7 +91,7 @@ export default function BlogPostLayout({
       {/* Main Content */}
       <div className="w-full py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-invert prose-lg max-w-none">
+          <div className="prose prose-invert prose-lg max-w-none font-mono">
             {children}
           </div>
         </div>
@@ -101,7 +101,7 @@ export default function BlogPostLayout({
       {relatedPosts.length > 0 && (
         <div className="w-full bg-slate-900/50 border-t border-b border-slate-700/50 py-16 md:py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-12 text-white">Related Posts</h2>
+            <h2 className="text-3xl font-bold mb-12 text-white font-serif">Related Posts</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {relatedPosts.map((post) => (
@@ -124,18 +124,18 @@ export default function BlogPostLayout({
                       {/* Card Content */}
                       <div className="p-6 flex flex-col flex-grow">
                         {/* Date */}
-                        <div className="flex items-center gap-1 text-xs text-foreground/50 mb-3">
+                        <div className="flex items-center gap-1 text-xs text-foreground/50 mb-3 font-mono">
                           <Calendar className="w-3 h-3" />
                           <time>{post.date}</time>
                         </div>
 
                         {/* Title */}
-                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2">
+                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors line-clamp-2 font-serif">
                           {post.title}
                         </h3>
 
                         {/* Description */}
-                        <p className="text-sm text-foreground/70 mb-4 flex-grow line-clamp-3">
+                        <p className="text-sm text-foreground/70 mb-4 flex-grow line-clamp-3 font-mono">
                           {post.description}
                         </p>
 
@@ -155,23 +155,23 @@ export default function BlogPostLayout({
       )}
 
       {/* Branded Footer */}
-      <footer className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t border-slate-700/50 py-16 md:py-24">
+      <footer className="w-full bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-t border-slate-700/50 py-16 md:py-24 font-mono">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
             {/* Brand Section */}
             <div className="space-y-4">
               <div className="flex items-center gap-2">
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600" />
-                <h3 className="text-lg font-bold text-white">Nomadic</h3>
+                <h3 className="text-lg font-bold text-white font-serif">Nomadic</h3>
               </div>
-              <p className="text-sm text-foreground/60">
+              <p className="text-sm text-foreground/60 font-mono">
                 A modern blog platform for nomadic travelers sharing insights and stories from around the world.
               </p>
             </div>
 
             {/* Quick Links */}
             <div className="space-y-4">
-              <h4 className="font-semibold text-white">Quick Links</h4>
+              <h4 className="font-semibold text-white font-serif">Quick Links</h4>
               <ul className="space-y-2">
                 <li>
                   <Link href="/blog" className="text-sm text-foreground/60 hover:text-blue-400 transition-colors">
@@ -193,8 +193,8 @@ export default function BlogPostLayout({
 
             {/* Social & Contact */}
             <div className="space-y-4">
-              <h4 className="font-semibold text-white">Stay Connected</h4>
-              <p className="text-sm text-foreground/60">
+              <h4 className="font-semibold text-white font-serif">Stay Connected</h4>
+              <p className="text-sm text-foreground/60 font-mono">
                 Follow our journey across the globe and join our community of nomadic explorers.
               </p>
               <div className="flex gap-3 pt-2">
