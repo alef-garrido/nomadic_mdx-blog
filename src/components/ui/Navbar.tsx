@@ -98,11 +98,11 @@ export function AppNavbar() {
                 </HeroLink>
             </NavbarContent>
 
-            <NavbarMenu className="bg-background/80 backdrop-blur-md pt-6">
+            <NavbarMenu className="bg-background/80 backdrop-blur-md pt-6 h-screen flex flex-col items-center justify-center">
                 {menuItems.map((item, index) => (
                     <NavbarMenuItem key={`${item.name}-${index}`}>
                         <NextLink
-                            className="w-full text-lg py-2 font-mono"
+                            className="text-5xl py-6 font-mono text-center uppercase"
                             href={item.href}
                             onClick={() => setIsMenuOpen(false)}
                         >
