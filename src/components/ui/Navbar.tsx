@@ -54,7 +54,7 @@ export function AppNavbar() {
                             height={32}
                             className="w-8 h-8"
                         />
-                        <p className="text-xl font-bold bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                        <p className="text-xl font-bold bg-linear-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent font-display">
                             nomad_proxy
                         </p>
                     </NextLink>
@@ -66,7 +66,7 @@ export function AppNavbar() {
                     <NavbarItem key={item.name} isActive={pathname === item.href}>
                         <NextLink
                             href={item.href}
-                            className={`text-sm font-medium transition-colors hover:text-blue-400 ${pathname === item.href ? "text-blue-400" : "text-foreground"
+                            className={`text-sm font-medium transition-colors hover:text-blue-400 font-mono ${pathname === item.href ? "text-blue-400" : "text-foreground"
                                 }`}
                         >
                             {item.name}
@@ -102,7 +102,7 @@ export function AppNavbar() {
                 {menuItems.map((item, index) => (
                     <NavbarMenuItem key={`${item.name}-${index}`}>
                         <NextLink
-                            className="w-full text-lg py-2"
+                            className="w-full text-lg py-2 font-mono"
                             href={item.href}
                             onClick={() => setIsMenuOpen(false)}
                         >
