@@ -22,11 +22,11 @@ export default function Home() {
 
         <div className="w-full max-w-5xl m-4">
           <div className="">
-            <h1 className="text-4xl md:text-6xl font-bold font-serif">
-              Update to the latest version of&nbsp;
+            <h1 className="text-4xl md:text-6xl font-bold font-display">
+              Update to the latest version&nbsp;
             </h1>
-            <h2 className="text-5xl md:text-8xl text-emerald-400 uppercase font-serif">freedom</h2>
-            <h2 className="text-5xl md:text-6xl font-bold font-serif">with nomad_proxy.</h2>
+            <h2 className="text-5xl md:text-8xl text-emerald-400 uppercase font-display">of your freedom</h2>
+            <h2 className="text-5xl md:text-6xl font-bold font-display">with nomad_proxy.</h2>
             <h2 className="mt-8 text-3xl font-mono">
               Secured, expedite and modern full-time traveling.
             </h2>

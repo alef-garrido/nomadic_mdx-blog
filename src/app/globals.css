@@ -3,7 +3,7 @@
 @plugin "../../hero.ts";
 
 @layer base {
-  @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
   :root {
     --background: #ffffff;
@@ -12,6 +12,7 @@
     --secondary: #a855f7;
     --font-serif: 'Crimson Text', serif;
     --font-mono: 'IBM Plex Mono', monospace;
+    --font-display: 'Space Grotesk', sans-serif;
     color-scheme: light;
   }
 
@@ -44,6 +45,7 @@
   --color-secondary: var(--secondary);
   --font-serif: var(--font-serif);
   --font-mono: var(--font-mono);
+  --font-display: var(--font-display);
 }
 
 .container {
