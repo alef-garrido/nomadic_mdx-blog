@@ -22,7 +22,7 @@ export default function Footer() {
     const isDark = resolvedTheme === 'dark';
 
     return (
-        <footer className={`w-full transition-colors duration-300 ${isDark
+        <footer className={`w-full transition-colors duration-300 font-mono ${isDark
                 ? 'bg-gradient-to-b from-slate-900 via-slate-950 to-black border-t border-slate-800/50'
                 : 'bg-gradient-to-b from-slate-50 via-slate-100 to-white border-t border-slate-200'
             }`}>
@@ -32,22 +32,22 @@ export default function Footer() {
                         ? 'bg-gradient-to-r from-slate-800/50 via-slate-900/50 to-slate-800/50 border border-slate-700/50'
                         : 'bg-gradient-to-r from-slate-100/50 via-slate-200/50 to-slate-100/50 border border-slate-300'
                     }`}>
-                    <h3 className={`text-3xl md:text-4xl font-bold mb-4 ${isDark ? 'text-white' : 'text-slate-900'}`}>
+                    <h3 className={`text-3xl md:text-4xl font-bold mb-4 font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
                         Ready to Start Your Journey?
                     </h3>
-                    <p className={`max-w-2xl mx-auto mb-8 ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
+                    <p className={`max-w-2xl mx-auto mb-8 font-mono ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                         Join our community of nomadic explorers and share your stories with the world.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link
                             href="/blog"
-                            className="px-8 py-3 bg-green-400 hover:bg-pink-500 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105"
+                            className="px-8 py-3 bg-green-400 hover:bg-pink-500 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 font-mono"
                         >
                             Learn More
                         </Link>
                         <Link
                             href="/club"
-                            className="px-8 py-3 border border-purple-500/50 text-purple-400 hover:bg-purple-500/10 rounded-lg font-medium transition-all duration-300"
+                            className="px-8 py-3 border border-purple-500/50 text-purple-400 hover:bg-purple-500/10 rounded-lg font-medium transition-all duration-300 font-mono"
                         >
                             Join Community
                         </Link>
@@ -71,11 +71,11 @@ export default function Footer() {
                         speed={1}
                         enableShadows
                         enableOnHover={false}
-                        className="text-5xl md:text-7xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-lg"
+                        className="text-5xl md:text-7xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-lg font-display"
                     >
                         Explore Yonder
                     </GlitchText>
-                    <p className={`text-lg mt-6 max-w-2xl mx-auto ${isDark ? 'text-slate-400' : 'text-slate-700'}`}>
+                    <p className={`text-lg mt-6 max-w-2xl mx-auto font-mono ${isDark ? 'text-slate-400' : 'text-slate-700'}`}>
                         Discover the world, one story at a time. Connect with travelers, share experiences, and find inspiration.
                     </p>
                 </div>
@@ -91,11 +91,11 @@ export default function Footer() {
                             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center">
                                 <Zap className="w-6 h-6 text-white" />
                             </div>
-                            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-display">
                                 Nomadic
                             </h3>
                         </div>
-                        <p className={`text-sm leading-relaxed ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
+                        <p className={`text-sm leading-relaxed font-mono ${isDark ? 'text-slate-400' : 'text-slate-600'}`}>
                             A modern blog platform for nomadic travelers sharing insights and stories from around the world.
                         </p>
                         <div className="flex gap-4 pt-4">
@@ -130,28 +130,28 @@ export default function Footer() {
 
                     {/* Quick Links */}
                     <div className="space-y-4">
-                        <h4 className={`font-semibold text-lg ${isDark ? 'text-white' : 'text-slate-900'}`}>Navigation</h4>
+                        <h4 className={`font-semibold text-lg font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>Navigation</h4>
                         <ul className="space-y-3">
                             <li>
-                                <Link href="/" className={`text-sm transition-colors flex items-center gap-2 ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}>
+                                <Link href="/" className={`text-sm transition-colors flex items-center gap-2 font-mono ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}>
                                     <span className="w-1 h-1 bg-blue-500 rounded-full"></span>
                                     Home
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/blog" className={`text-sm transition-colors flex items-center gap-2 ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}>
+                                <Link href="/blog" className={`text-sm transition-colors flex items-center gap-2 font-mono ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}>
                                     <span className="w-1 h-1 bg-blue-500 rounded-full"></span>
                                     Blog
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/club" className={`text-sm transition-colors flex items-center gap-2 ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}>
+                                <Link href="/club" className={`text-sm transition-colors flex items-center gap-2 font-mono ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}>
                                     <span className="w-1 h-1 bg-blue-500 rounded-full"></span>
                                     Community
                                 </Link>
                             </li>
                             <li>
-                                <a href="#" className={`text-sm transition-colors flex items-center gap-2 ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}>
+                                <a href="#" className={`text-sm transition-colors flex items-center gap-2 font-mono ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}>
                                     <span className="w-1 h-1 bg-blue-500 rounded-full"></span>
                                     About
                                 </a>
@@ -161,7 +161,7 @@ export default function Footer() {
 
                     {/* Featured Image */}
                     <div className="space-y-4">
-                        <h4 className={`font-semibold text-lg ${isDark ? 'text-white' : 'text-slate-900'}`}>Featured</h4>
+                        <h4 className={`font-semibold text-lg font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>Featured</h4>
                         <div className={`stamp-border relative w-full aspect-square rounded-xl overflow-hidden shadow-lg transition-colors ${isDark
                                 ? 'hover:border-blue-500/50'
                                 : 'hover:border-blue-400'
@@ -175,8 +175,8 @@ export default function Footer() {
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
                                 <div>
-                                    <p className="text-white font-semibold text-sm">Latest Story</p>
-                                    <p className="text-slate-300 text-xs">Explore the world</p>
+                                    <p className="text-white font-semibold text-sm font-serif">Latest Story</p>
+                                    <p className="text-slate-300 text-xs font-mono">Explore the world</p>
                                 </div>
                             </div>
                         </div>
@@ -184,25 +184,25 @@ export default function Footer() {
 
                     {/* Contact Info */}
                     <div className="space-y-4">
-                        <h4 className={`font-semibold text-lg ${isDark ? 'text-white' : 'text-slate-900'}`}>Get in Touch</h4>
+                        <h4 className={`font-semibold text-lg font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>Get in Touch</h4>
                         <div className="space-y-3">
                             <a
                                 href="mailto:hello@nomadic.com"
-                                className={`flex items-center gap-3 text-sm transition-colors group ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}
+                                className={`flex items-center gap-3 text-sm transition-colors group font-mono ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}
                             >
                                 <Mail className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                 hello@nomadic.com
                             </a>
                             <a
                                 href="#"
-                                className={`flex items-center gap-3 text-sm transition-colors group ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}
+                                className={`flex items-center gap-3 text-sm transition-colors group font-mono ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}
                             >
                                 <MapPin className="w-4 h-4 group-hover:scale-110 transition-transform" />
                                 Worldwide
                             </a>
                         </div>
                         <div className="pt-4">
-                            <button className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105">
+                            <button className="w-full px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 font-mono">
                                 Subscribe
                             </button>
                         </div>
@@ -216,22 +216,22 @@ export default function Footer() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                         {/* Copyright */}
-                        <p className={`text-sm ${isDark ? 'text-slate-500' : 'text-slate-600'}`}>
+                        <p className={`text-sm font-mono ${isDark ? 'text-slate-500' : 'text-slate-600'}`}>
                             &copy; {currentYear} Nomadic MDX Blog. All rights reserved.
                         </p>
 
                         {/* Legal Links */}
                         <div className="flex flex-wrap gap-6">
-                            <a href="#" className={`text-sm transition-colors ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
+                            <a href="#" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
                                 Privacy Policy
                             </a>
-                            <a href="#" className={`text-sm transition-colors ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
+                            <a href="#" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
                                 Terms of Service
                             </a>
-                            <a href="#" className={`text-sm transition-colors ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
+                            <a href="#" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
                                 Cookie Policy
                             </a>
-                            <a href="#" className={`text-sm transition-colors ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
+                            <a href="#" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
                                 Accessibility
                             </a>
                         </div>
@@ -239,7 +239,7 @@ export default function Footer() {
                         {/* Scroll to Top */}
                         <button
                             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                            className={`text-sm transition-colors flex items-center gap-2 ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}
+                            className={`text-sm transition-colors flex items-center gap-2 font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}
                         >
                             Back to top
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
