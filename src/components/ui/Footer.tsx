@@ -71,7 +71,7 @@ export default function Footer() {
                         speed={1}
                         enableShadows
                         enableOnHover={false}
-                        className="text-5xl md:text-7xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-lg font-display"
+                        className="text-5xl md:text-7xl font-black bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-lg font-display font-bold"
                     >
                         Explore Yonder
                     </GlitchText>
@@ -91,7 +91,7 @@ export default function Footer() {
                             <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 flex items-center justify-center">
                                 <Zap className="w-6 h-6 text-white" />
                             </div>
-                            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-display">
+                            <h3 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent font-display font-bold">
                                 Nomadic
                             </h3>
                         </div>
