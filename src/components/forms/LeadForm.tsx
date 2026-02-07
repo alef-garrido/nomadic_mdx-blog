@@ -58,7 +58,7 @@ export function LeadForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-md mx-auto">
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 max-w-md mx-auto font-mono">
       <div>
         <Input
           {...register("name")}
@@ -67,6 +67,7 @@ export function LeadForm() {
           isInvalid={!!errors.name}
           errorMessage={errors.name?.message}
           disabled={isSubmitting}
+          className="font-mono"
         />
       </div>
 
@@ -79,6 +80,7 @@ export function LeadForm() {
           isInvalid={!!errors.email}
           errorMessage={errors.email?.message}
           disabled={isSubmitting}
+          className="font-mono"
         />
       </div>
 
@@ -91,6 +93,7 @@ export function LeadForm() {
           isInvalid={!!errors.phone}
           errorMessage={errors.phone?.message}
           disabled={isSubmitting}
+          className="font-mono"
         />
       </div>
 
@@ -100,6 +103,7 @@ export function LeadForm() {
           placeholder="Company (optional)"
           fullWidth
           disabled={isSubmitting}
+          className="font-mono"
         />
       </div>
 
@@ -110,12 +114,13 @@ export function LeadForm() {
           fullWidth
           disabled={isSubmitting}
           minRows={4}
+          className="font-mono"
         />
       </div>
 
       {submitMessage && (
         <div
-          className={`p-3 rounded-md text-sm ${
+          className={`p-3 rounded-md text-sm font-mono ${
             submitMessage.type === "success"
               ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200"
               : "bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200"
@@ -130,6 +135,7 @@ export function LeadForm() {
         fullWidth
         isLoading={isSubmitting}
         color="primary"
+        className="font-mono"
       >
         {isSubmitting ? "Sending..." : "Send Message"}
       </Button>

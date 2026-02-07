@@ -10,9 +10,9 @@ import { LeadForm } from "@/components/forms/LeadForm";
 
 export default function Home() {
   return (
-    <div className="w-full min-h-[calc(100vh-160px)] flex flex-col items-center">
+    <div className="w-full min-h-[calc(100vh-160px)] flex flex-col items-center font-mono">
       <div className="w-full max-w-5xl mx-4 my-24">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium mb-4">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-400 text-sm font-medium mb-4 font-mono">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -22,12 +22,12 @@ export default function Home() {
 
         <div className="w-full max-w-5xl m-4">
           <div className="">
-            <h1 className="text-4xl md:text-6xl font-bold">
+            <h1 className="text-4xl md:text-6xl font-bold font-serif">
               Update to the latest version of&nbsp;
             </h1>
-            <h2 className="text-5xl md:text-8xl text-emerald-400 uppercase">freedom</h2>
-            <h2 className="text-5xl md:text-6xl font-bold">with nomad_proxy.</h2>
-            <h2 className="mt-8 text-3xl ">
+            <h2 className="text-5xl md:text-8xl text-emerald-400 uppercase font-serif">freedom</h2>
+            <h2 className="text-5xl md:text-6xl font-bold font-serif">with nomad_proxy.</h2>
+            <h2 className="mt-8 text-3xl font-mono">
               Secured, expedite and modern full-time traveling.
             </h2>
             <div className="mt-8 flex gap-3">
@@ -35,6 +35,7 @@ export default function Home() {
                 color="primary"
                 // href={siteConfig.links.sponsor}
                 variant="flat"
+                className="font-mono"
               >
                 Request Invite now
               </Button>
@@ -42,6 +43,7 @@ export default function Home() {
                 color="primary"
                 // href={siteConfig.links.whatsapp}
                 variant="flat"
+                className="font-mono"
               >
                 Talk to the team
               </Button>
@@ -49,9 +51,9 @@ export default function Home() {
           </div>
 
           <div className="my-8 grid place-items-start md:place-items-end">
-            <Snippet hideCopyButton hideSymbol variant="bordered" className="w-full justify-center">
-              <span>
-                Next Departure: <Code color="danger">OCTOBER_28_2026</Code>
+            <Snippet hideCopyButton hideSymbol variant="bordered" className="w-full justify-center font-mono">
+              <span className="font-mono">
+                Next Departure: <Code color="danger" className="font-mono">OCTOBER_28_2026</Code>
               </span>
             </Snippet>
           </div>
@@ -78,8 +80,8 @@ export default function Home() {
  </div>
       <div className="w-full max-w-5xl mt-24 mb-16">
         <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl border border-white/10 p-12">
-          <h3 className="text-3xl font-bold mb-2">Stay Connected</h3>
-          <p className="text-foreground/60 mb-8">Get updates about our journey and connect with the nomadic community.</p>
+          <h3 className="text-3xl font-bold mb-2 font-serif">Stay Connected</h3>
+          <p className="text-foreground/60 mb-8 font-mono">Get updates about our journey and connect with the nomadic community.</p>
           <LeadForm />
         </div>
       </div>

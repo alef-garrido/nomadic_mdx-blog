@@ -53,7 +53,7 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
     });
 
     return (
-        <div className="parallax">
+        <div className="parallax font-serif">
             <motion.div className="scroller" style={{ x }}>
                 <span>{children} </span>
                 <span>{children} </span>
@@ -66,7 +66,7 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
 
 export default function Marquee() {
     return (
-        <section>
+        <section className="font-serif">
             <ParallaxText baseVelocity={-3}>
                 {`: Nomad_Proxy : Explore yonder : Move now : Stay human: Uniqueness is
         found inside : Nomad_Proxy : Explore yonder : Move now : Stay human:

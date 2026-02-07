@@ -110,10 +110,10 @@ export const HeroParallax = () => {
 export const Header = () => {
     return (
         <div className="z-10 md:flex flex-col items-center max-w-7xl relative mx-auto py-10 px-4 w-full">
-            <h1 className="my-8 text-4xl md:text-7xl lg:text-7xl font-bold dark:text-white">
+            <h1 className="my-8 text-4xl md:text-7xl lg:text-7xl font-bold dark:text-white font-serif">
                 Set yourself free
             </h1>
-            <p className="md:max-w-2xl text-base md:text-lg lg:text-xl my-12 dark:text-neutral-200 text-center">
+            <p className="md:max-w-2xl text-base md:text-lg lg:text-xl my-12 dark:text-neutral-200 text-center font-mono">
                 Bespoke slow-traveling journey, Beautiful locations, adventure tourism
                 and flexible work-spaces, obtain a more affordable and reliable solution
                 to create transformative nomadic journeys.
@@ -162,7 +162,7 @@ export const ProductCard = ({
                 </Link>
 
                 <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-40 bg-black pointer-events-none rounded-xl transition-opacity" />
-                <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white font-bold transition-opacity">
+                <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white font-bold transition-opacity font-serif">
                     {product.title}
                 </h2>
             </motion.div>

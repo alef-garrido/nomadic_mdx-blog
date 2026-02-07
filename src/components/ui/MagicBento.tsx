@@ -720,14 +720,14 @@ const MagicBento: React.FC<BentoProps> = ({
                   enableMagnetism={enableMagnetism}
                 >
                   <div className={`card__header flex justify-between gap-3 relative ${isDark ? 'text-white' : 'text-black'}`}>
-                    <span className="card__label text-3xl md:text-4xl font-bold">{card.label}</span>
+                    <span className="card__label text-3xl md:text-4xl font-bold font-serif">{card.label}</span>
                   </div>
                   <div className={`card__content flex flex-col relative ${isDark ? 'text-white' : 'text-black'}`}>
-                    <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
+                    <h3 className={`card__title font-normal text-base m-0 mb-1 font-serif ${textAutoHide ? 'text-clamp-1' : ''}`}>
                       {card.title}
                     </h3>
                     <p
-                      className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}
+                      className={`card__description text-xs leading-5 opacity-90 font-mono ${textAutoHide ? 'text-clamp-2' : ''}`}
                     >
                       {card.description}
                     </p>
@@ -852,13 +852,13 @@ const MagicBento: React.FC<BentoProps> = ({
                 }}
               >
                 <div className={`card__header flex justify-between gap-3 relative ${isDark ? 'text-white' : 'text-black'}`}>
-                  <span className="card__label text-3xl md:text-4xl font-bold">{card.label}</span>
+                  <span className="card__label text-3xl md:text-4xl font-bold font-serif">{card.label}</span>
                 </div>
                 <div className={`card__content flex flex-col relative ${isDark ? 'text-white' : 'text-black'}`}>
-                  <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
+                  <h3 className={`card__title font-normal text-base m-0 mb-1 font-serif ${textAutoHide ? 'text-clamp-1' : ''}`}>
                     {card.title}
                   </h3>
-                  <p className={`card__description text-xs leading-5 opacity-90 ${textAutoHide ? 'text-clamp-2' : ''}`}>
+                  <p className={`card__description text-xs leading-5 opacity-90 font-mono ${textAutoHide ? 'text-clamp-2' : ''}`}>
                     {card.description}
                   </p>
                 </div>
