@@ -3,7 +3,7 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Users, Zap, Globe, MessageCircle, Heart, Compass } from 'lucide-react';
-import { ClubLandingContent } from '@/components/ui/ClubLandingContent';
+import { ClubLanding } from '@/components/ui/ClubLandingContent';
 
 export default function ClubPage() {
     const { resolvedTheme } = useTheme();
@@ -19,7 +19,7 @@ export default function ClubPage() {
     const isDark = resolvedTheme === 'dark';
 
     if (showLanding) {
-        return <ClubLandingContent onGoBack={() => setShowLanding(false)} />;
+        return <ClubLanding onGoBack={() => setShowLanding(false)} />;
     }
 
     return (
