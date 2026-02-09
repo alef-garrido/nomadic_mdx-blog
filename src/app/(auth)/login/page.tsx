@@ -37,7 +37,7 @@ function LoginContent() {
         toast.success("Login successful! Redirecting...");
         router.push(callbackUrl);
       }
-    } catch (_err) {
+    } catch {
       const errorMsg = "An error occurred. Please try again.";
       setError(errorMsg);
       toast.error(errorMsg);

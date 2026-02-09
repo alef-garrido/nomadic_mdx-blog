@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'next/navigation';
 import { Card, Skeleton, Button } from '@heroui/react';
 import { ArrowLeft, Mail, Phone, Calendar } from 'lucide-react';
@@ -11,11 +11,7 @@ export default function LeadDetailPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    fetchLead();
-  }, [params.id]);
-
-  async function fetchLead() {
+  const fetchLead = useCallback(async () => {
     try {
       const response = await fetch(`/api/admin/leads/${params.id}`);
       if (!response.ok) throw new Error('Failed to fetch lead');
@@ -26,7 +22,11 @@ export default function LeadDetailPage() {
     } finally {
       setLoading(false);
     }
-  }
+  }, [params.id]);
+
+  useEffect(() => {
+    fetchLead();
+  }, [fetchLead]);
 
   if (loading) {
     return (

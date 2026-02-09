@@ -29,11 +29,6 @@ export const FloatingClubCTA = ({ onShowLanding }: { onShowLanding?: () => void 
         }
     };
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 10 },
-        visible: { opacity: 1, y: 0 }
-    };
-
     const buttonVariants = {
         initial: { scale: 1 },
         hover: { scale: 1.05 },

@@ -1,12 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useRouter, useParams } from 'next/navigation';
 import { Button, Card, Input, Textarea, Tabs, Tab } from '@heroui/react';
 import { ArrowLeft, Save, Code2, Eye, Bold, Italic, Heading1, Heading2, List, ListOrdered, Link as LinkIcon } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from '@/lib/toast';
-import { TableSkeleton, CardSkeleton } from '@/components/ui/LoadingSkeleton';
+import { CardSkeleton } from '@/components/ui/LoadingSkeleton';
 
 interface PostData {
   title: string;
@@ -32,20 +32,14 @@ export default function PostEditorPage() {
   const [isSaving, setIsSaving] = useState(false);
   const [selectedTab, setSelectedTab] = useState('edit');
 
-  useEffect(() => {
-    if (isEditMode) {
-      fetchPost();
-    }
-  }, [isEditMode, slug]);
-
-  const fetchPost = async () => {
+  const fetchPost = useCallback(async () => {
     if (!slug) return;
 
     try {
       const response = await fetch(`/api/admin/posts/${slug}`);
 
       if (response.ok) {
-        const _data = await response.json();
+        const data = await response.json();
         setPost({
           title: data.data.frontmatter.title,
           date: data.data.frontmatter.date,
@@ -61,13 +55,18 @@ export default function PostEditorPage() {
       } else {
         toast.error('Failed to load post');
       }
-    } catch (error) {
-      console.error('Error fetching post:', error);
+    } catch {
       toast.error('Error loading post. Please try again.');
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [slug, router]);
+
+  useEffect(() => {
+    if (isEditMode) {
+      fetchPost();
+    }
+  }, [isEditMode, fetchPost]);
 
   const insertMarkdown = (before: string, after: string = '') => {
     const textarea = document.getElementById('mdx-content') as HTMLTextAreaElement;
@@ -126,13 +125,12 @@ export default function PostEditorPage() {
       });
 
       if (response.ok || response.status === 201) {
-        const _data = await response.json();
         toast.success(
           isEditMode ? 'Post updated successfully' : 'Post created successfully'
         );
         router.push('/admin/posts');
       } else if (response.status === 400) {
-        const _data = await response.json();
+        const data = await response.json();
         toast.error(data.error || 'Invalid post data');
       } else if (response.status === 401) {
         toast.error('Session expired. Please login again.');
@@ -142,8 +140,7 @@ export default function PostEditorPage() {
       } else {
         toast.error(isEditMode ? 'Failed to update post' : 'Failed to create post');
       }
-    } catch (error) {
-      console.error('Error saving post:', error);
+    } catch {
       toast.error('Error saving post. Please try again.');
     } finally {
       setIsSaving(false);

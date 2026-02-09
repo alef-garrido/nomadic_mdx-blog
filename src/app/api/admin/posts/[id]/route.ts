@@ -18,7 +18,7 @@ interface RouteParams {
  * GET /api/admin/posts/[id]
  * Returns a specific blog post with full content
  */
-export async function GET(request: NextRequest, { params }: RouteParams): Promise<NextResponse> {
+export async function GET(_request: NextRequest, { params }: RouteParams): Promise<NextResponse> {
   try {
     const { id } = await params;
 
@@ -45,8 +45,7 @@ export async function GET(request: NextRequest, { params }: RouteParams): Promis
       { success: true, data: post } as BlogApiResponse<BlogPost>,
       { status: 200 }
     );
-  } catch (_error) {
-    console.error('Error fetching post:', error);
+  } catch {
     return NextResponse.json(
       { success: false, error: 'Failed to fetch post' } as BlogApiResponse,
       { status: 500 }
@@ -90,21 +89,9 @@ export async function PUT(request: NextRequest, { params }: RouteParams): Promis
       { success: true, data: updatedPost, message: 'Post updated successfully' } as BlogApiResponse<BlogPost>,
       { status: 200 }
     );
-  } catch (_error) {
-    console.error('Error updating post:', error);
-
-    const errorMessage = error instanceof Error ? error.message : 'Failed to update post';
-
-    // Check if it's a not found error
-    if (errorMessage.includes('not found')) {
-      return NextResponse.json(
-        { success: false, error: errorMessage } as BlogApiResponse,
-        { status: 404 }
-      );
-    }
-
+  } catch {
     return NextResponse.json(
-      { success: false, error: errorMessage } as BlogApiResponse,
+      { success: false, error: 'Failed to update post' } as BlogApiResponse,
       { status: 500 }
     );
   }
@@ -134,21 +121,9 @@ export async function DELETE(request: NextRequest, { params }: RouteParams): Pro
       { success: true, message: 'Post deleted successfully' } as BlogApiResponse,
       { status: 200 }
     );
-  } catch (_error) {
-    console.error('Error deleting post:', error);
-
-    const errorMessage = error instanceof Error ? error.message : 'Failed to delete post';
-
-    // Check if it's a not found error
-    if (errorMessage.includes('not found')) {
-      return NextResponse.json(
-        { success: false, error: errorMessage } as BlogApiResponse,
-        { status: 404 }
-      );
-    }
-
+  } catch {
     return NextResponse.json(
-      { success: false, error: errorMessage } as BlogApiResponse,
+      { success: false, error: 'Failed to delete post' } as BlogApiResponse,
       { status: 500 }
     );
   }

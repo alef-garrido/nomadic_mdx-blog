@@ -47,7 +47,7 @@ export function LeadForm() {
           text: result.error || "Something went wrong. Please try again.",
         });
       }
-    } catch (error) {
+    } catch {
       setSubmitMessage({
         type: "error",
         text: "Failed to submit form. Please try again.",

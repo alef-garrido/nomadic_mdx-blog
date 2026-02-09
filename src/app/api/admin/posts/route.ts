@@ -13,7 +13,10 @@ import { CreateBlogPostInput, BlogApiResponse, BlogPostResponse } from '@/lib/ty
  * GET /api/admin/posts
  * Returns list of all blog posts with metadata
  */
-export async function GET(request: NextRequest): Promise<NextResponse> {
+export async function GET(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _request: NextRequest
+): Promise<NextResponse> {
   try {
     // Check authentication
     const session = await auth();
@@ -84,7 +87,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     }
 
     // Create the post
-    const { slug, post } = createPost(input);
+    const { post } = createPost(input);
 
     const response: BlogPostResponse = {
       slug: post.slug,

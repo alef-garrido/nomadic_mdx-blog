@@ -11,7 +11,10 @@ async function requireAuth() {
   return session;
 }
 
-export async function GET(request: NextRequest) {
+export async function GET(
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  _request: NextRequest
+) {
   const session = await requireAuth();
   if (!session) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -20,7 +23,7 @@ export async function GET(request: NextRequest) {
   try {
     const leads = await getAllLeads();
     return NextResponse.json({ success: true, data: leads });
-  } catch (_error) {
+  } catch {
     return NextResponse.json(
       { success: false, error: "Failed to fetch leads" },
       { status: 500 }
