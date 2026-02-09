@@ -5,9 +5,18 @@ import { useParams } from 'next/navigation';
 import { Card, Skeleton, Button } from '@heroui/react';
 import { ArrowLeft, Mail, Phone, Calendar } from 'lucide-react';
 
+interface Lead {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  message?: string;
+  createdAt: string;
+}
+
 export default function LeadDetailPage() {
   const params = useParams();
-  const [lead, setLead] = useState(null);
+  const [lead, setLead] = useState<Lead | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
