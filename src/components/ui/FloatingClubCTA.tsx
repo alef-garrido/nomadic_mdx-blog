@@ -5,11 +5,12 @@ import { motion } from 'framer-motion';
 import { Heart, BookOpen } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useEffect } from 'react';
-import Link from 'next/link';
+import { ClubLandingModal } from './ClubLandingModal';
 
 export const FloatingClubCTA = () => {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
+    const [showLandingModal, setShowLandingModal] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -41,37 +42,36 @@ export const FloatingClubCTA = () => {
     };
 
     return (
-        <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-            className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col sm:flex-row gap-3 items-center`}
-        >
-            {/* Join Club Button */}
-            <motion.button
-                variants={itemVariants}
-                whileHover="hover"
-                whileTap="tap"
-                variants={buttonVariants}
-                onClick={() => alert('Join Club feature coming soon!')}
-                className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-lg font-mono text-sm font-semibold transition-all shadow-xl hover:shadow-2xl transform"
-                aria-label="Join the club"
-            >
-                <span className="flex items-center gap-2">
-                    <Heart className="w-4 h-4" />
-                    Join Club
-                </span>
-            </motion.button>
-
-            {/* Learn More Button */}
+        <>
             <motion.div
-                variants={itemVariants}
-                whileHover="hover"
-                whileTap="tap"
-                variants={buttonVariants}
+                initial="hidden"
+                animate="visible"
+                variants={containerVariants}
+                className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col sm:flex-row gap-3 items-center`}
             >
-                <Link
-                    href="/blog"
+                {/* Join Club Button */}
+                <motion.button
+                    variants={itemVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    variants={buttonVariants}
+                    onClick={() => alert('Join Club feature coming soon!')}
+                    className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-lg font-mono text-sm font-semibold transition-all shadow-xl hover:shadow-2xl transform"
+                    aria-label="Join the club"
+                >
+                    <span className="flex items-center gap-2">
+                        <Heart className="w-4 h-4" />
+                        Join Club
+                    </span>
+                </motion.button>
+
+                {/* Learn More Button */}
+                <motion.button
+                    variants={itemVariants}
+                    whileHover="hover"
+                    whileTap="tap"
+                    variants={buttonVariants}
+                    onClick={() => setShowLandingModal(true)}
                     className={`px-6 py-3 rounded-lg font-mono text-sm font-semibold transition-all shadow-lg hover:shadow-xl transform flex items-center gap-2 ${isDark
                         ? 'bg-slate-800 hover:bg-slate-700 text-slate-100'
                         : 'bg-slate-200 hover:bg-slate-300 text-slate-900'
@@ -79,8 +79,14 @@ export const FloatingClubCTA = () => {
                 >
                     <BookOpen className="w-4 h-4" />
                     Learn More
-                </Link>
+                </motion.button>
             </motion.div>
-        </motion.div>
+
+            {/* Club Landing Modal */}
+            <ClubLandingModal 
+                isOpen={showLandingModal} 
+                onClose={() => setShowLandingModal(false)} 
+            />
+        </>
     );
 };
