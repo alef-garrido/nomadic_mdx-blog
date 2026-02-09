@@ -21,7 +21,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         // Get all posts to generate related posts (excluding current)
         const { getAllPosts } = await import("@/lib/mdx");
         allPosts = getAllPosts().filter((p) => p.slug !== slug).slice(0, 4);
-    } catch (e) {
+    } catch (_e) {
         notFound();
     }
 

@@ -10,7 +10,7 @@ const LEADS_FILE = path.join(DATA_DIR, "leads.json");
 async function ensureDataDir() {
   try {
     await fs.mkdir(DATA_DIR, { recursive: true });
-  } catch (error) {
+  } catch {
     // Directory might already exist
   }
 }

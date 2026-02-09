@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { Snippet, Button, Code, Link as HeroLink } from "@heroui/react";
-import { ArrowRight, BookOpen, Cpu, Globe } from "lucide-react";
+import { Snippet, Button, Code } from "@heroui/react";
 import Marquee from "@/components/ui/Marquee";
 import { MagicBento } from "@/components";
 import { HeroParallax } from "@/components/ui/ParallaxDisplay";
@@ -85,16 +83,6 @@ export default function Home() {
           <LeadForm />
         </div>
       </div>
-    </div>
-  );
-}
-
-function FeatureCard({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) {
-  return (
-    <div className="p-6 rounded-2xl border border-white/5 bg-white/5 hover:bg-white/10 transition-colors">
-      <div className="mb-4">{icon}</div>
-      <h3 className="text-xl font-bold mb-2 font-serif">{title}</h3>
-      <p className="text-foreground/60 text-sm leading-relaxed font-mono">{description}</p>
     </div>
   );
 }

@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { signIn } from "next-auth/react";
 import { Button, Input, Card } from "@heroui/react";
 import { AlertCircle, Lock } from "lucide-react";
 import { toast } from "@/lib/toast";
 
-export default function LoginPage() {
+function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/admin";
@@ -37,7 +37,7 @@ export default function LoginPage() {
         toast.success("Login successful! Redirecting...");
         router.push(callbackUrl);
       }
-    } catch (err) {
+    } catch (_err) {
       const errorMsg = "An error occurred. Please try again.";
       setError(errorMsg);
       toast.error(errorMsg);
@@ -119,5 +119,13 @@ export default function LoginPage() {
         </div>
       </Card>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-slate-900 flex items-center justify-center"><p className="text-slate-400">Loading...</p></div>}>
+      <LoginContent />
+    </Suspense>
   );
 }

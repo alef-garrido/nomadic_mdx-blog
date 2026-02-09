@@ -18,7 +18,7 @@ const ADMIN_FILE = path.join(DATA_DIR, "admin.json");
 async function ensureDataDir() {
   try {
     await fs.mkdir(DATA_DIR, { recursive: true });
-  } catch (error) {
+  } catch {
     // Directory might already exist
   }
 }

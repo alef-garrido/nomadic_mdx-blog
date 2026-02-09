@@ -45,7 +45,7 @@ export async function GET(request: NextRequest, { params }: RouteParams): Promis
       { success: true, data: post } as BlogApiResponse<BlogPost>,
       { status: 200 }
     );
-  } catch (error) {
+  } catch (_error) {
     console.error('Error fetching post:', error);
     return NextResponse.json(
       { success: false, error: 'Failed to fetch post' } as BlogApiResponse,
@@ -90,7 +90,7 @@ export async function PUT(request: NextRequest, { params }: RouteParams): Promis
       { success: true, data: updatedPost, message: 'Post updated successfully' } as BlogApiResponse<BlogPost>,
       { status: 200 }
     );
-  } catch (error) {
+  } catch (_error) {
     console.error('Error updating post:', error);
 
     const errorMessage = error instanceof Error ? error.message : 'Failed to update post';
@@ -134,7 +134,7 @@ export async function DELETE(request: NextRequest, { params }: RouteParams): Pro
       { success: true, message: 'Post deleted successfully' } as BlogApiResponse,
       { status: 200 }
     );
-  } catch (error) {
+  } catch (_error) {
     console.error('Error deleting post:', error);
 
     const errorMessage = error instanceof Error ? error.message : 'Failed to delete post';

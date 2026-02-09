@@ -21,7 +21,7 @@ export async function GET(
     }
 
     return NextResponse.json({ success: true, data: lead });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { success: false, error: "Failed to fetch lead" },
       { status: 500 }
@@ -47,7 +47,7 @@ export async function PUT(
     }
 
     return NextResponse.json({ success: true, data: updated });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { success: false, error: "Failed to update lead" },
       { status: 500 }
@@ -71,7 +71,7 @@ export async function DELETE(
     }
 
     return NextResponse.json({ success: true });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { success: false, error: "Failed to delete lead" },
       { status: 500 }

@@ -5,7 +5,7 @@ import { Button, Card, Input } from '@heroui/react';
 import { Plus, Trash2, Edit2, Calendar, Eye } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from '@/lib/toast';
-import { TableSkeleton, CardSkeleton } from '@/components/ui/LoadingSkeleton';
+import { TableSkeleton } from '@/components/ui/LoadingSkeleton';
 import ConfirmationDialog from '@/components/ui/ConfirmationDialog';
 
 interface Post {

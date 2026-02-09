@@ -48,10 +48,9 @@ export const FloatingClubCTA = ({ onShowLanding }: { onShowLanding?: () => void 
         >
             {/* Join Club Button */}
             <motion.button
-                variants={itemVariants}
+                variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
-                variants={buttonVariants}
                 onClick={() => alert('Join Club feature coming soon!')}
                 className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-lg font-mono text-sm font-semibold transition-all shadow-xl hover:shadow-2xl transform"
                 aria-label="Join the club"
@@ -64,10 +63,9 @@ export const FloatingClubCTA = ({ onShowLanding }: { onShowLanding?: () => void 
 
             {/* Go Back Button (Learn More) */}
             <motion.button
-                variants={itemVariants}
+                variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
-                variants={buttonVariants}
                 onClick={onShowLanding}
                 className={`px-6 py-3 rounded-lg font-mono text-sm font-semibold transition-all shadow-lg hover:shadow-xl transform flex items-center gap-2 ${isDark
                     ? 'bg-slate-800 hover:bg-slate-700 text-slate-100'

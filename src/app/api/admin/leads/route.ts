@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getAllLeads, getLead, updateLead, deleteLead } from "@/lib/leads/storage";
+import { getAllLeads } from "@/lib/leads/storage";
 import { auth } from "@/lib/auth";
 
 // Middleware to check authentication
@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
   try {
     const leads = await getAllLeads();
     return NextResponse.json({ success: true, data: leads });
-  } catch (error) {
+  } catch (_error) {
     return NextResponse.json(
       { success: false, error: "Failed to fetch leads" },
       { status: 500 }
