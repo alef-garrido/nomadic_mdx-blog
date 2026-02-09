@@ -1,14 +1,15 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Accessibility as AccessibilityIcon } from 'lucide-react';
 
 export default function Accessibility() {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -88,7 +89,7 @@ export default function Accessibility() {
                             Report Accessibility Issues
                         </h2>
                         <p className="leading-relaxed">
-                            If you encounter any accessibility barriers on our website, please let us know. We're committed to making improvements. Contact us at{' '}
+                            If you encounter any accessibility barriers on our website, please let us know. We&apos;re committed to making improvements. Contact us at{' '}
                             <a href="mailto:hello@nomadic.com" className="text-green-400 hover:text-green-300 transition-colors">
                                 hello@nomadic.com
                             </a>

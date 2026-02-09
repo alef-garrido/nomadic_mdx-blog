@@ -1,14 +1,15 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Users, Globe, Zap } from 'lucide-react';
 
 export default function About() {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -41,7 +42,7 @@ export default function About() {
                             Our Story
                         </h2>
                         <p className="leading-relaxed">
-                            Nomadic MDX Blog was founded with a simple mission: to connect travelers, share authentic stories, and inspire a community of digital nomads exploring the world. We believe that travel is more than just visiting new places—it's about connecting with people, cultures, and perspectives that transform how we see the world.
+                            Nomadic MDX Blog was founded with a simple mission: to connect travelers, share authentic stories, and inspire a community of digital nomads exploring the world. We believe that travel is more than just visiting new places—it&apos;s about connecting with people, cultures, and perspectives that transform how we see the world.
                         </p>
                     </section>
 
@@ -105,7 +106,7 @@ export default function About() {
                             Get In Touch
                         </h2>
                         <p className="leading-relaxed mb-4">
-                            We'd love to hear from you. Whether you want to share your story, collaborate, or just say hello:
+                            We&apos;d love to hear from you. Whether you want to share your story, collaborate, or just say hello:
                         </p>
                         <a
                             href="mailto:hello@nomadic.com"

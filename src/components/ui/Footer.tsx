@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Mail, MapPin, Zap } from 'lucide-react';
 import { FaThreads } from 'react-icons/fa6';
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import GlitchText from './GlitchText';
 
 export default function Footer() {
@@ -13,7 +13,8 @@ export default function Footer() {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 

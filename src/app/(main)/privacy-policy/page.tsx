@@ -1,14 +1,15 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Shield } from 'lucide-react';
 
 export default function PrivacyPolicy() {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -41,7 +42,7 @@ export default function PrivacyPolicy() {
                             Introduction
                         </h2>
                         <p className="leading-relaxed">
-                            Nomadic MDX Blog ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
+                            Nomadic MDX Blog (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;) is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.
                         </p>
                     </section>
 

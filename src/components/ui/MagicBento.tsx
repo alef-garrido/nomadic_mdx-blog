@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useLayoutEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { useTheme } from 'next-themes';
 
@@ -203,7 +203,7 @@ const ParticleCard: React.FC<{
     });
   }, [initializeParticles]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (disableAnimations || !cardRef.current) return;
 
     const element = cardRef.current;
@@ -368,7 +368,7 @@ const GlobalSpotlight: React.FC<{
   const spotlightRef = useRef<HTMLDivElement | null>(null);
   const isInsideSection = useRef(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (disableAnimations || !gridRef?.current || !enabled) return;
 
     const spotlight = document.createElement('div');
@@ -506,7 +506,7 @@ const BentoCardGrid: React.FC<{
 const useMobileDetection = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= MOBILE_BREAKPOINT);
 
     checkMobile();
@@ -537,7 +537,8 @@ const MagicBento: React.FC<BentoProps> = ({
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 

@@ -1,14 +1,15 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { FileText } from 'lucide-react';
 
 export default function TermsOfService() {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -56,7 +57,7 @@ export default function TermsOfService() {
                             <li>Modifying or copying the materials</li>
                             <li>Using the materials for any commercial purpose or for any public display</li>
                             <li>Attempting to decompile or reverse engineer any software contained on the website</li>
-                            <li>Transferring the materials to another person or "mirroring" the materials on any other server</li>
+                            <li>Transferring the materials to another person or &quot;mirroring&quot; the materials on any other server</li>
                         </ul>
                     </section>
 
@@ -65,7 +66,7 @@ export default function TermsOfService() {
                             Disclaimer
                         </h2>
                         <p className="leading-relaxed">
-                            The materials on Nomadic MDX Blog's website are provided on an "as is" basis. Nomadic MDX Blog makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
+                            The materials on Nomadic MDX Blog&apos;s website are provided on an &quot;as is&quot; basis. Nomadic MDX Blog makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.
                         </p>
                     </section>
 

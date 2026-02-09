@@ -1,7 +1,11 @@
-const fs = require("fs");
-const path = require("path");
-const bcryptjs = require("bcryptjs");
-const { randomUUID } = require("crypto");
+import fs from "fs";
+import path from "path";
+import bcryptjs from "bcryptjs";
+import { randomUUID } from "crypto";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const DATA_DIR = path.join(process.cwd(), "data");
 const ADMIN_FILE = path.join(DATA_DIR, "admin.json");

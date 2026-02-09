@@ -6,7 +6,7 @@ import { Button, Card, Input, Textarea, Tabs, Tab } from '@heroui/react';
 import { ArrowLeft, Save, Code2, Eye, Bold, Italic, Heading1, Heading2, List, ListOrdered, Link as LinkIcon } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from '@/lib/toast';
-import { TableSkeleton } from '@/components/ui/LoadingSkeleton';
+import { TableSkeleton, CardSkeleton } from '@/components/ui/LoadingSkeleton';
 
 interface PostData {
   title: string;

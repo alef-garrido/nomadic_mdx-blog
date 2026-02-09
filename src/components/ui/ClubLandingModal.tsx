@@ -59,12 +59,12 @@ export const ClubLandingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose
                                 </div>
 
                                 <blockquote className={`border-l-4 pl-6 py-4 italic text-lg ${isDark ? 'border-blue-500/50 text-slate-300' : 'border-blue-400 text-slate-700'}`}>
-                                    "A network of travelers, united by the passion for exploration and personal growth."
+                                    &quot;A network of travelers, united by the passion for exploration and personal growth.&quot;
                                 </blockquote>
 
                                 <div className="space-y-4">
                                     <h4 className={`text-xl font-bold font-display ${isDark ? 'text-white' : 'text-slate-900'}`}>
-                                        What You'll Get
+                                        What You&apos;ll Get
                                     </h4>
                                     <ul className={`space-y-3 font-mono ${isDark ? 'text-slate-300' : 'text-slate-700'}`}>
                                         {[
@@ -141,11 +141,11 @@ export const ClubLandingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose
                                         </h3>
                                         <div className="space-y-4">
                                             <blockquote className={`border-l-4 pl-4 py-2 italic text-sm ${isDark ? 'border-blue-500/50' : 'border-blue-400'}`}>
-                                                "Through this community, I found my travel partners and discovered 15 new countries. The connections I made will last a lifetime."
+                                                &quot;Through this community, I found my travel partners and discovered 15 new countries. The connections I made will last a lifetime.&quot;
                                                 <footer className={`mt-2 font-bold ${isDark ? 'text-slate-200' : 'text-slate-900'}`}>— Sarah, Digital Nomad</footer>
                                             </blockquote>
                                             <blockquote className={`border-l-4 pl-4 py-2 italic text-sm ${isDark ? 'border-purple-500/50' : 'border-purple-400'}`}>
-                                                "The destination guides and tips from community members saved me so much time and money. Highly recommend!"
+                                                &quot;The destination guides and tips from community members saved me so much time and money. Highly recommend!&quot;
                                                 <footer className={`mt-2 font-bold ${isDark ? 'text-slate-200' : 'text-slate-900'}`}>— Alex, Adventure Seeker</footer>
                                             </blockquote>
                                         </div>
@@ -157,7 +157,7 @@ export const ClubLandingModal = ({ isOpen, onClose }: { isOpen: boolean; onClose
                                             Ready to Join?
                                         </h3>
                                         <p className="leading-relaxed">
-                                            Don't miss out on the opportunity to be part of a vibrant global community. Sign up today and start your journey with us!
+                                            Don&apos;t miss out on the opportunity to be part of a vibrant global community. Sign up today and start your journey with us!
                                         </p>
                                     </section>
                                 </div>

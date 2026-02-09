@@ -1,7 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useLayoutEffect, useState } from 'react';
 import { Users, Zap, Globe, MessageCircle, Heart, Compass } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { BookOpen } from 'lucide-react';
@@ -12,7 +12,8 @@ export default function ClubPage() {
     const [mounted, setMounted] = useState(false);
     const [showLanding, setShowLanding] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
@@ -68,7 +69,7 @@ export default function ClubPage() {
                             </div>
 
                             <blockquote className={`border-l-4 pl-6 py-2 italic ${isDark ? 'border-blue-500/50 text-slate-300' : 'border-blue-400 text-slate-700'}`}>
-                                "Travel alone to know yourself, travel together to know the world." - The Nomadic Way
+                                &quot;Travel alone to know yourself, travel together to know the world.&quot; - The Nomadic Way
                             </blockquote>
                         </div>
 
@@ -213,7 +214,8 @@ const FloatingCTA = ({ onShowLanding }: { onShowLanding: () => void }) => {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 

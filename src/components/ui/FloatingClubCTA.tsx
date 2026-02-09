@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Heart, BookOpen } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 
 export const FloatingClubCTA = ({ onShowLanding }: { onShowLanding?: () => void }) => {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
     }, []);
 
