@@ -41,14 +41,14 @@ export default function ClubPage() {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 font-mono">
-                                Join Now
-                            </button>
+                            <span className="px-8 py-3 text-green font-medium font-mono">
+                                Not sure yet?
+                            </span>
                             <button className={`px-8 py-3 border-2 rounded-lg font-medium transition-all duration-300 font-mono ${isDark
                                 ? 'border-purple-500/50 text-purple-400 hover:bg-purple-500/10'
                                 : 'border-purple-400 text-purple-600 hover:bg-purple-400/10'
                                 }`}>
-                                Learn More
+                                Visit our Blog
                             </button>
                         </div>
 
@@ -126,7 +126,7 @@ export default function ClubPage() {
                 </div>
 
                 {/* Featured Members */}
-                <div className="mb-24">
+                <div id="members-section" className="mb-24 scroll-mt-20">
                     <h2 className={`text-3xl font-bold font-display mb-8 ${isDark ? 'text-white' : 'text-slate-900'}`}>
                         Meet Our Community
                     </h2>

@@ -1,59 +1,86 @@
 'use client';
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Users, Mail, MessageCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Heart, BookOpen } from 'lucide-react';
+import { useTheme } from 'next-themes';
+import { useEffect } from 'react';
+import Link from 'next/link';
 
 export const FloatingClubCTA = () => {
-    const { scrollYProgress } = useScroll();
-    const [visible, setVisible] = useState(false);
+    const { resolvedTheme } = useTheme();
+    const [mounted, setMounted] = useState(false);
 
-    useMotionValueEvent(scrollYProgress, 'change', (current) => {
-        if (typeof current === 'number') {
-            let direction = current - scrollYProgress.getPrevious()!;
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-            if (scrollYProgress.get() < 0.05) {
-                setVisible(false);
-            } else {
-                if (direction < 0) {
-                    setVisible(true);
-                } else {
-                    setVisible(false);
-                }
-            }
+    if (!mounted) return null;
+
+    const isDark = resolvedTheme === 'dark';
+
+    const containerVariants = {
+        hidden: { opacity: 0, scale: 0.95, y: 50 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            y: 0,
+            transition: { staggerChildren: 0.1, delayChildren: 0.2 }
         }
-    });
+    };
 
-    const navItems = [
-        { name: 'Members', icon: Users },
-        { name: 'Discussion', icon: MessageCircle },
-        { name: 'Contact', icon: Mail }
-    ];
+    const itemVariants = {
+        hidden: { opacity: 0, y: 10 },
+        visible: { opacity: 1, y: 0 }
+    };
+
+    const buttonVariants = {
+        initial: { scale: 1 },
+        hover: { scale: 1.05 },
+        tap: { scale: 0.95 }
+    };
 
     return (
-        <AnimatePresence mode="wait">
-            {visible && (
-                <motion.div
-                    initial={{ opacity: 0, y: 100 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 100 }}
-                    transition={{ duration: 0.3 }}
-                    className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex gap-2 md:gap-4 p-3 md:p-4 rounded-full bg-white dark:bg-black border border-slate-200 dark:border-white/10 shadow-lg dark:shadow-xl backdrop-blur-md"
+        <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={containerVariants}
+            className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex flex-col sm:flex-row gap-3 items-center`}
+        >
+            {/* Join Club Button */}
+            <motion.button
+                variants={itemVariants}
+                whileHover="hover"
+                whileTap="tap"
+                variants={buttonVariants}
+                onClick={() => alert('Join Club feature coming soon!')}
+                className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-lg font-mono text-sm font-semibold transition-all shadow-xl hover:shadow-2xl transform"
+                aria-label="Join the club"
+            >
+                <span className="flex items-center gap-2">
+                    <Heart className="w-4 h-4" />
+                    Join Club
+                </span>
+            </motion.button>
+
+            {/* Learn More Button */}
+            <motion.div
+                variants={itemVariants}
+                whileHover="hover"
+                whileTap="tap"
+                variants={buttonVariants}
+            >
+                <Link
+                    href="/blog"
+                    className={`px-6 py-3 rounded-lg font-mono text-sm font-semibold transition-all shadow-lg hover:shadow-xl transform flex items-center gap-2 ${isDark
+                        ? 'bg-slate-800 hover:bg-slate-700 text-slate-100'
+                        : 'bg-slate-200 hover:bg-slate-300 text-slate-900'
+                        }`}
                 >
-                    {navItems.map((item, idx) => {
-                        const Icon = item.icon;
-                        return (
-                            <button
-                                key={idx}
-                                className="flex items-center gap-2 px-4 py-2 rounded-full font-mono text-sm transition-all hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
-                            >
-                                <Icon className="w-4 h-4" />
-                                <span className="hidden sm:inline">{item.name}</span>
-                            </button>
-                        );
-                    })}
-                </motion.div>
-            )}
-        </AnimatePresence>
+                    <BookOpen className="w-4 h-4" />
+                    Learn More
+                </Link>
+            </motion.div>
+        </motion.div>
     );
 };
