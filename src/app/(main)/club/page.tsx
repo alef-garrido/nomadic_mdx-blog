@@ -3,11 +3,12 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 import { Users, Zap, Globe, MessageCircle, Heart, Compass } from 'lucide-react';
-import Link from 'next/link';
+import { ClubLandingContent } from '@/components/ui/ClubLandingContent';
 
 export default function ClubPage() {
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
+    const [showLanding, setShowLanding] = useState(false);
 
     useEffect(() => {
         setMounted(true);
@@ -16,6 +17,10 @@ export default function ClubPage() {
     if (!mounted) return null;
 
     const isDark = resolvedTheme === 'dark';
+
+    if (showLanding) {
+        return <ClubLandingContent onGoBack={() => setShowLanding(false)} />;
+    }
 
     return (
         <div className={`min-h-screen transition-colors duration-300 ${isDark ? 'bg-gradient-to-b from-slate-950 via-slate-900 to-black' : 'bg-gradient-to-b from-slate-50 via-slate-100 to-white'}`}>
@@ -41,14 +46,16 @@ export default function ClubPage() {
                         </div>
 
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <span className="px-8 py-3 text-green font-medium font-mono">
-                                Not sure yet?
-                            </span>
-                            <button className={`px-8 py-3 border-2 rounded-lg font-medium transition-all duration-300 font-mono ${isDark
-                                ? 'border-purple-500/50 text-purple-400 hover:bg-purple-500/10'
-                                : 'border-purple-400 text-purple-600 hover:bg-purple-400/10'
-                                }`}>
-                                Visit our Blog
+                            <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 font-mono">
+                                Join Now
+                            </button>
+                            <button
+                                onClick={() => setShowLanding(true)}
+                                className={`px-8 py-3 border-2 rounded-lg font-medium transition-all duration-300 font-mono ${isDark
+                                    ? 'border-purple-500/50 text-purple-400 hover:bg-purple-500/10'
+                                    : 'border-purple-400 text-purple-600 hover:bg-purple-400/10'
+                                    }`}>
+                                Learn More
                             </button>
                         </div>
 
@@ -126,7 +133,7 @@ export default function ClubPage() {
                 </div>
 
                 {/* Featured Members */}
-                <div id="members-section" className="mb-24 scroll-mt-20">
+                <div className="mb-24">
                     <h2 className={`text-3xl font-bold font-display mb-8 ${isDark ? 'text-white' : 'text-slate-900'}`}>
                         Meet Our Community
                     </h2>
@@ -173,15 +180,15 @@ export default function ClubPage() {
                         <button className="px-8 py-3 bg-green-400 hover:bg-green-500 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 font-mono">
                             Join the Club
                         </button>
-                        <Link
-                            href="/blog"
+                        <button
+                            onClick={() => setShowLanding(true)}
                             className={`px-8 py-3 rounded-lg font-medium transition-all duration-300 font-mono ${isDark
                                 ? 'bg-slate-800 text-slate-100 hover:bg-slate-700'
                                 : 'bg-slate-200 text-slate-900 hover:bg-slate-300'
                                 }`}
                         >
-                            Read Stories
-                        </Link>
+                            Learn More
+                        </button>
                     </div>
                 </div>
             </div>
