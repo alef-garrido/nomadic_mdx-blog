@@ -54,16 +54,16 @@ export default function ClubPage() {
                             </div>
 
                             <div className="flex flex-col sm:flex-row gap-4">
-                                <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 font-mono">
-                                    Join Now
-                                </button>
+                                <p className="px-8 py-3 text-green  font-mono">
+                                    Not sure yet?
+                                </p>
                                 <button
-                                    onClick={() => setShowLanding(true)}
+                                    onClick={() => window.location.href = '/blog'}
                                     className={`px-8 py-3 border-2 rounded-lg font-medium transition-all duration-300 font-mono ${isDark
                                         ? 'border-purple-500/50 text-purple-400 hover:bg-purple-500/10'
                                         : 'border-purple-400 text-purple-600 hover:bg-purple-400/10'
                                         }`}>
-                                    Learn More
+                                    Visit our Blog
                                 </button>
                             </div>
 
@@ -251,10 +251,9 @@ const FloatingCTA = ({ onShowLanding }: { onShowLanding: () => void }) => {
         >
             {/* Join Club Button */}
             <motion.button
-                variants={itemVariants}
+                variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
-                variants={buttonVariants}
                 onClick={() => alert('Join Club feature coming soon!')}
                 className="px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white rounded-lg font-mono text-sm font-semibold transition-all shadow-xl hover:shadow-2xl transform"
                 aria-label="Join the club"
@@ -267,10 +266,9 @@ const FloatingCTA = ({ onShowLanding }: { onShowLanding: () => void }) => {
 
             {/* Learn More Button */}
             <motion.button
-                variants={itemVariants}
+                variants={buttonVariants}
                 whileHover="hover"
                 whileTap="tap"
-                variants={buttonVariants}
                 onClick={onShowLanding}
                 className={`px-6 py-3 rounded-lg font-mono text-sm font-semibold transition-all shadow-lg hover:shadow-xl transform flex items-center gap-2 ${isDark
                     ? 'bg-slate-800 hover:bg-slate-700 text-slate-100'
