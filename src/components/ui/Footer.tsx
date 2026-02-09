@@ -151,10 +151,10 @@ export default function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <a href="#" className={`text-sm transition-colors flex items-center gap-2 font-mono ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}>
+                                <Link href="/about" className={`text-sm transition-colors flex items-center gap-2 font-mono ${isDark ? 'text-slate-400 hover:text-blue-400' : 'text-slate-600 hover:text-blue-600'}`}>
                                     <span className="w-1 h-1 bg-blue-500 rounded-full"></span>
                                     About
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                     </div>
@@ -222,18 +222,18 @@ export default function Footer() {
 
                         {/* Legal Links */}
                         <div className="flex flex-wrap gap-6">
-                            <a href="#" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
+                            <Link href="/privacy-policy" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
                                 Privacy Policy
-                            </a>
-                            <a href="#" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
+                            </Link>
+                            <Link href="/terms-of-service" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
                                 Terms of Service
-                            </a>
-                            <a href="#" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
+                            </Link>
+                            <Link href="/cookie-policy" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
                                 Cookie Policy
-                            </a>
-                            <a href="#" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
+                            </Link>
+                            <Link href="/accessibility" className={`text-sm transition-colors font-mono ${isDark ? 'text-slate-500 hover:text-slate-300' : 'text-slate-600 hover:text-slate-900'}`}>
                                 Accessibility
-                            </a>
+                            </Link>
                         </div>
 
                         {/* Scroll to Top */}
